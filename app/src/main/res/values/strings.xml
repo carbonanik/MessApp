@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Massenger</string>
+
+    <string name="status_unknown">Unknown</string>
+    <string name="status_connecting">Connecting …</string>
+    <string name="status_connected">Connected!</string>
+    <string name="status_matching">Matching …</string>
+    <string name="status_failed">Failed</string>
+    <string name="connect_btn">Connect</string>
+    <string name="status_finished">Finished</string>
+    <string name="title_activity_test_compose">TestComposeActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="pref_speakerphone_key">speakerphone_preference</string>
+    <string name="pref_speakerphone_default">auto</string>
+</resources>

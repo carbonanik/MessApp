@@ -5,18 +5,19 @@ import com.massage.massenger.model.User
 import com.massage.massenger.model.enumstate.LeftReason
 import com.massage.massenger.model.enumstate.RTCConnectionType
 import com.massage.massenger.model.enumstate.RTCRequestType
-import com.massage.massenger.util.UUIDSerializer
+import com.massage.massenger.util.object_id.ObjectId
+import com.massage.massenger.util.state.AttachedMedia
 import com.massage.massenger.util.state.MessageStatus
 import com.massage.massenger.util.state.WanderingState
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
 import org.webrtc.SessionDescription
-import java.util.*
 
 
 @Serializable
 sealed class SocketMessage {
+
     var sender: User? = null
     var receiver: User? = null
     var group: Group? = null
@@ -24,31 +25,29 @@ sealed class SocketMessage {
     @Serializable
     @SerialName("TextMessage")
     data class TextMessage(
-        val id: String = "",
-        @Serializable(with = UUIDSerializer::class)
-        var localId: UUID = UUID.randomUUID(),
-        var time: Long = System.currentTimeMillis(),
-        var text: String? = null,
-        var image: String? = null,
+        val id: String = ObjectId().toString(),
+        val timestamp: Long = System.currentTimeMillis(),
+        val text: String? = null,
+        val mediaUrl: String? = null,
+        val mediaType: AttachedMedia? = null,
         @Transient
-        var status: MessageStatus = MessageStatus.RECEIVED
+        val status: MessageStatus = MessageStatus.RECEIVED
     ) : SocketMessage()
 
 
     @Serializable
     @SerialName("MessageStatusCarrier")
     data class MessageStatusCarrier(
-        @Serializable(with = UUIDSerializer::class)
-        var messageLocalId: UUID = UUID.randomUUID(),
-        var time: Long = System.currentTimeMillis(),
-        var status: MessageStatus = MessageStatus.SENDING
+        val messageId: String,
+        val time: Long = System.currentTimeMillis(),
+        val status: MessageStatus = MessageStatus.SENDING
     ) : SocketMessage()
 
 
     @Serializable
     @SerialName("WanderingStatus")
     data class WanderingStatus(
-        var status: WanderingState = WanderingState.LEFT,
+        val status: WanderingState = WanderingState.LEFT,
     ) : SocketMessage()
 
 
@@ -58,8 +57,8 @@ sealed class SocketMessage {
         @Serializable
         @SerialName("RtcRequest")
         data class RtcRequest(
-            var rtcConType: RTCConnectionType = RTCConnectionType.VideoCall,
-            var rtcReqType: RTCRequestType = RTCRequestType.REQUESTING,
+            val rtcConType: RTCConnectionType = RTCConnectionType.VideoCall,
+            val rtcReqType: RTCRequestType = RTCRequestType.REQUESTING,
         ) : RTCMessage()
 
 
@@ -85,7 +84,7 @@ sealed class SocketMessage {
         @Serializable
         @SerialName("PeerLeft")
         data class PeerLeft(
-            var reason: LeftReason = LeftReason.CALL_END
+            val reason: LeftReason = LeftReason.CALL_END
         ) : RTCMessage()
 
     }

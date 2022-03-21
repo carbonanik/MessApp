@@ -17,6 +17,7 @@ class GroupApiServiceImpl(private val client: HttpClient) : GroupApiService {
         withContext(Dispatchers.IO) {
             client.post<Group> {
                 url(HttpRoutes.Group.CREATE)
+                contentType(ContentType.Application.Json)
                 headers {
                     append(HttpHeaders.Authorization, token)
                 }
@@ -30,6 +31,7 @@ class GroupApiServiceImpl(private val client: HttpClient) : GroupApiService {
     ): Group = withContext(Dispatchers.IO) {
         client.post<Group> {
             url(HttpRoutes.Group.ADD_MEMBER)
+            contentType(ContentType.Application.Json)
             headers {
                 append(HttpHeaders.Authorization, token)
             }

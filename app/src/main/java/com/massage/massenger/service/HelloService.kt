@@ -6,9 +6,7 @@ import android.os.Build
 import android.os.IBinder
 import com.massage.massenger.common.RTCMessage
 import com.massage.massenger.common.RtcRequest
-import com.massage.massenger.data.repository.SocketMessageRepository
-import com.massage.massenger.util.extensions.toJson
-import com.massage.massenger.model.*
+import com.massage.massenger.data.repository_impl.MessageRepository
 import com.massage.massenger.model.enumstate.RTCConnectionType
 import com.massage.massenger.model.enumstate.RTCRequestType
 import com.massage.massenger.presentation.ui.DataChannelActivity
@@ -16,6 +14,7 @@ import com.massage.massenger.presentation.ui.RTCActivity
 import com.massage.massenger.util.ACCEPTING
 import com.massage.massenger.util.OTHER_PERSON
 import com.massage.massenger.util.REQ_OR_ACC
+import com.massage.massenger.util.extensions.toJson
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -25,19 +24,22 @@ import javax.inject.Inject
 
 
 @AndroidEntryPoint
-class HelloService: Service() {
+class HelloService : Service() {
 
-    @Inject lateinit var socketMessageRepository: SocketMessageRepository
-    @Inject lateinit var myNotificationManager: MyNotificationManager
+    @Inject
+    lateinit var messageRepository: MessageRepository
 
-    override fun onCreate(){
+    @Inject
+    lateinit var messageNotificationManager: MyNotificationManager
+    val scope = CoroutineScope(Dispatchers.Default)
+
+    private val notificationIds = HashMap<String, Int>()
+
+    override fun onCreate() {
         super.onCreate()
 
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
-            myNotificationManager.startMyOwnForeground(this,
-                myNotificationManager.newNotification())
-        } else {
-            startForeground(1, myNotificationManager.newNotification())
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            messageNotificationManager.createMessageNotificationChannel()
         }
     }
 
@@ -45,7 +47,13 @@ class HelloService: Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         super.onStartCommand(intent, flags, startId)
 
-        subscribeToSocketEvents()
+        scope.launch {
+            messageRepository.incomingNotification.collect {
+                messageNotificationManager.sendNotification(
+                    it, it.chat.id.hashCode()
+                )
+            }
+        }
 
         return START_STICKY
     }
@@ -55,7 +63,7 @@ class HelloService: Service() {
         CoroutineScope(Dispatchers.Default).launch {
             launch {
                 launch {
-                    socketMessageRepository.incomingRtcEvent.collect {
+                    messageRepository.incomingRtcEvent.collect {
                         isRtcRequest(it)
                     }
                 }
@@ -63,10 +71,10 @@ class HelloService: Service() {
         }
     }
 
-    private suspend fun isRtcRequest(message: RTCMessage){
+    private suspend fun isRtcRequest(message: RTCMessage) {
         when (message) {
             is RtcRequest -> {
-                if (message.rtcConType == RTCConnectionType.VideoCall && message.rtcReqType == RTCRequestType.REQUESTING ) { /// offer came from another user
+                if (message.rtcConType == RTCConnectionType.VideoCall && message.rtcReqType == RTCRequestType.REQUESTING) { /// offer came from another user
 
                     val intent = Intent(
                         this@HelloService,
@@ -79,7 +87,7 @@ class HelloService: Service() {
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
 
                     startActivity(intent)
-                } else if (message.rtcConType == RTCConnectionType.DataChannel && message.rtcReqType == RTCRequestType.REQUESTING ) {
+                } else if (message.rtcConType == RTCConnectionType.DataChannel && message.rtcReqType == RTCRequestType.REQUESTING) {
 
                     val intent = Intent(
                         this@HelloService,
@@ -110,11 +118,11 @@ class HelloService: Service() {
 //                            .setPriority(NotificationCompat.PRIORITY_HIGH)
 //                            .setCategory(NotificationCompat.CATEGORY_CALL)
 
-                            // Use a full-screen intent only for the highest-priority alerts where you
-                            // have an associated activity that you would like to launch after the user
-                            // interacts with the notification. Also, if your app targets Android 10
-                            // or higher, you need to request the USE_FULL_SCREEN_INTENT permission in
-                            // order for the platform to invoke this notification.
+                    // Use a full-screen intent only for the highest-priority alerts where you
+                    // have an associated activity that you would like to launch after the user
+                    // interacts with the notification. Also, if your app targets Android 10
+                    // or higher, you need to request the USE_FULL_SCREEN_INTENT permission in
+                    // order for the platform to invoke this notification.
 //                            .setFullScreenIntent(fullScreenPendingIntent, true)
 //
 //                    val incomingCallNotification = notificationBuilder.build()
@@ -149,9 +157,18 @@ class HelloService: Service() {
         return null
     }
 
-//    override fun onDestroy() {
-//        messageRepository.closeSocket()
-//        println("service destroyed")
-//        super.onDestroy()
-//    }
+    fun getOrNewNotificationId(chatId: String): Int {
+        return notificationIds[chatId] ?: newNotificationId(chatId)
+    }
+
+    private fun newNotificationId(chatId: String): Int {
+        val newId = notificationIds.size + 1
+        notificationIds[chatId] = newId
+        return newId
+    }
+
+    override fun onDestroy() {
+        println("service destroyed")
+        super.onDestroy()
+    }
 }

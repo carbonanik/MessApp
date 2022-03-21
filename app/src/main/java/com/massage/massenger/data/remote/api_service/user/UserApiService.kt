@@ -8,7 +8,7 @@ interface UserApiService {
     // route -> "/user/me"
     suspend fun getUserByToken(token: String): User
 
-    suspend fun getUserByName(name: String, token: String): User
+    suspend fun queryUserByName(name: String, token: String): List<User>
 
     suspend fun getUserById(userId: String, token: String): User
 

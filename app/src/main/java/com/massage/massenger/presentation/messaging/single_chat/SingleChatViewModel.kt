@@ -1,116 +1,93 @@
 package com.massage.massenger.presentation.messaging.single_chat
 
 import android.net.Uri
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
-import androidx.lifecycle.*
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.massage.massenger.common.TextMessage
+import com.massage.massenger.common.createChat
+import com.massage.massenger.data.local.content.ExternalStorageImageProvider
 import com.massage.massenger.data.remote.firebase.FirebaseStorage
-import com.massage.massenger.data.repository.*
-import com.massage.massenger.model.*
+import com.massage.massenger.data.repository.AuthRepository
+import com.massage.massenger.data.repository_impl.ChatRepositoryImpl
+import com.massage.massenger.data.repository_impl.GroupRepository
+import com.massage.massenger.data.repository_impl.MessageRepository
+import com.massage.massenger.data.repository_impl.UserRepository
+import com.massage.massenger.model.Chat
+import com.massage.massenger.model.Group
+import com.massage.massenger.model.SharedStoragePhoto
+import com.massage.massenger.model.User
 import com.massage.massenger.model.enumstate.ChatType
-import com.massage.massenger.presentation.messaging.Screen
 import com.massage.massenger.util.state.MessageStatus
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class SingleChatViewModel @Inject constructor(
-    private val userDataRepository: UserDataRepository,
-    private val socketMessageRepository: SocketMessageRepository,
-    private val chatDBRepository: ChatDBRepository,
-    private val userDBRepository: UserDBRepository,
-    private val messageDBRepository: MessageDBRepository
+    private val authRepository: AuthRepository,
+    private val messageRepository: MessageRepository,
+    private val chatRepository: ChatRepositoryImpl,
+    private val groupRepository: GroupRepository,
+    private val userRepository: UserRepository,
+    private val externalStorageImageProvider: ExternalStorageImageProvider,
 ) : ViewModel() {
 
-    var me by mutableStateOf<User?>(null)
-        private set
+    private val _viewState = MutableStateFlow(SingleChatDataState())
+    val viewState = _viewState.asStateFlow()
 
-    var chat by mutableStateOf<Chat?>(null)
-        private set
-
-    var receiverUser by mutableStateOf<User?>(null)
-        private set
-
-    /**
-     * gallery photo for sending
-     */
-    val photos = mutableStateListOf<SharedStoragePhoto>()
-
-    /**
-     * all message of this chat
-     */
-    val displayMessage = mutableStateListOf<ChatMessage>()
-
-
-    fun initSingleChatArgs(args: Screen.SingleChatScreen.SingleChatArgs) {
-        if (me == null) {
-            getLoggedInUser()
-        }
-
-        if (chat == null && args.chatId != null) {
-            chatById(args.chatId, success = {
-                if (chat?.type == ChatType.SINGLE) {
-                    receiverUser(chat?.id)
-                } else if (chat?.type == ChatType.GROUP) {
-
-                }
-            })
-        }
-
-        if (receiverUser == null && args.userId != null) {
-            receiverUser(args.userId)
-        }
-
-        if (displayMessage.isEmpty() && chat != null){
-            viewModelScope.launch {
-                messageDBRepository.allWithChat(chat?.id).collect { list ->
-                    displayMessage.clear()
-                    displayMessage.addAll(list)
-                }
-            }
-        }
-
+    fun getSingleChatDataState(chat: Chat?, user: User?) {
+        initAllData(chat, user)
     }
 
-    /**
-     * me / author
-     * logged in user
-     */
-    private fun getLoggedInUser() {
+    private fun initAllData(chat: Chat?, user: User?) {
+//        println("init all data")
         viewModelScope.launch {
-            me = userDataRepository.getUser()
+            launch { getLoggedInUser() }
+            launch { getCurrentChat(user, chat) }
+            launch { getReceiverUser(chat, user) }
+            launch { getReceiverGroup(chat) }
+            launch { getAllMessageWithChat(chat?.id ?: user?.id) }
         }
     }
 
-    /**
-     * get the chat if open from chat list
-     * or get null
-     */
-    private fun chatById(id: String?, success: () -> Unit) {
-        viewModelScope.launch {
-            chat = chatDBRepository.getChat(id)
-            if (chat != null) success()
+    private suspend fun getAllMessageWithChat(chatId: String?) {
+        messageRepository.getAllMessageWithChat(chatId).collect { ml ->
+            _viewState.value = _viewState.value
+                .copy(messageList = ml)
         }
     }
 
-    /**
-     * other person / user // receiver of the chat
-     */
-    private fun receiverUser(id: String?) {
-        viewModelScope.launch {
-            receiverUser = userDBRepository.getUser(id)
-        }
+    private suspend fun getLoggedInUser() {
+        _viewState.value = _viewState.value
+            .copy(loggedInUser = authRepository.getLoggedInUser())
     }
 
-    /**
-     * send text message to other person
-     */
+    private suspend fun getReceiverUser(chat: Chat?, user: User?) {
+//        if (chat?.type == ChatType.GROUP) return
+        val ru = userRepository.getUserByIdLocal(user?.id ?: chat?.id)
+        _viewState.value = _viewState.value
+            .copy(receiverUser = ru)
+    }
+
+    private suspend fun getReceiverGroup(chat: Chat?) {
+        if (chat?.type != ChatType.GROUP) return
+        _viewState.value = _viewState.value
+            .copy(receivingGroup = groupRepository.getCachedGroupById(chat.id))
+
+    }
+
+    private suspend fun getCurrentChat(user: User?, chat: Chat?) {
+        _viewState.value = _viewState.value
+            .copy(
+                currentChat = chat
+                    ?: chatRepository.getChat(user?.id)
+                    ?: user?.createChat()
+            )
+    }
+
     fun sendTextMessage(
         me: User?,
         text: String?,
@@ -125,20 +102,15 @@ class SingleChatViewModel @Inject constructor(
             receiverUser = receiverUser,
             receiverGroup = receiverGroup
         )?.let {
-            socketMessageRepository.sendMessage(it)
+            messageRepository.sendMessage(it)
         }
 
-    fun submitPhotoUriToUpload(contentUri: Uri) {
-        uploadPhoto(contentUri) { uri ->
-            println(uri)
-            sendTextMessage(
-                me = me,
-                text = null,
-                image = uri.toString(),
-                receiverUser = receiverUser,
-                receiverGroup = null
-            )
-        }
+    fun submitPhotoForSend(photo: SharedStoragePhoto) {
+        trySendingPhotos(
+            _viewState.value.loggedInUser,
+            _viewState.value.receiverUser,
+            _viewState.value.receivingGroup, photo
+        )
     }
 
     private fun uploadPhoto(contentUri: Uri, complete: (uri: Uri?) -> Unit) {
@@ -149,16 +121,10 @@ class SingleChatViewModel @Inject constructor(
                 //todo progress
             },
             onSuccess = {
-                // send message
                 complete(it)
             })
     }
 
-    /**
-     * create new text message
-     * sender me
-     * receiver provided user / group
-     */
     private fun createTextMessage(
         me: User?,
         image: String? = null,
@@ -171,12 +137,30 @@ class SingleChatViewModel @Inject constructor(
 
         return TextMessage(
             text = messageText,
-            image = image,
+            mediaUrl = image,
             status = MessageStatus.SENDING
         ).apply {
             sender = me
             receiver = receiverUser
             group = receiverGroup
+        }
+    }
+
+    fun getImages() =
+        externalStorageImageProvider.getPhotos()
+
+    private fun trySendingPhotos(
+        loggedInUser: User?,
+        receiverUser: User?,
+        receiverGroup: Group?,
+        photo: SharedStoragePhoto
+    ) {
+
+        uploadPhoto(photo.contentUri) {
+            sendTextMessage(
+                loggedInUser, null,
+                it.toString(), receiverUser, receiverGroup
+            )
         }
     }
 

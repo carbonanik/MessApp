@@ -2,10 +2,8 @@ package com.massage.massenger.di
 
 import android.app.Application
 import androidx.room.Room
-import com.massage.massenger.data.local.room.ChatDao
-import com.massage.massenger.data.local.room.ConnectionDao
-import com.massage.massenger.data.local.room.MessageDao
 import com.massage.massenger.data.local.room.MessengerDatabase
+import com.massage.massenger.data.local.room.dao.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,8 +17,10 @@ class DatabaseModule {
     @Provides
     @Singleton
     fun provideDatabase(app: Application): MessengerDatabase =
-            Room.databaseBuilder(app, MessengerDatabase::class.java, "messenger_database")
-                    .build()
+        Room.databaseBuilder(app, MessengerDatabase::class.java, "messenger_database")
+//            .addCallback(DB_CALLBACK)
+            .build()
+
 
     @Provides
     fun provideMessageDao(database: MessengerDatabase): MessageDao {
@@ -33,7 +33,17 @@ class DatabaseModule {
     }
 
     @Provides
-    fun provideConnectionDao(database: MessengerDatabase): ConnectionDao {
-        return database.connectionDao()
+    fun provideConnectionDao(database: MessengerDatabase): UserDao {
+        return database.userDao()
+    }
+
+    @Provides
+    fun provideGroupDao(database: MessengerDatabase): GroupDao {
+        return database.groupDao()
+    }
+
+    @Provides
+    fun providePostDao(database: MessengerDatabase): PostDao {
+        return database.postDao()
     }
 }

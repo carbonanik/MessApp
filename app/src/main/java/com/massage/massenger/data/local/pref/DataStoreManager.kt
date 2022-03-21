@@ -7,12 +7,14 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.emptyPreferences
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import com.massage.massenger.model.User
 import com.massage.massenger.util.extensions.fromJson
 import com.massage.massenger.util.extensions.toJson
-import com.massage.massenger.model.User
 import dagger.hilt.android.qualifiers.ApplicationContext
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
 import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -20,7 +22,9 @@ import javax.inject.Singleton
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(DataStoreManager.USER_DATA_PREFERENCES)
 
 @Singleton
-class DataStoreManager @Inject constructor(@ApplicationContext private val context: Context) {
+class DataStoreManager @Inject constructor(
+    @ApplicationContext private val context: Context
+) {
 
     private val dataStore = context.dataStore
 
@@ -58,6 +62,14 @@ class DataStoreManager @Inject constructor(@ApplicationContext private val conte
         dataStore.edit { preference ->
             preference[USER] = user.toJson()
         }
+    }
+
+    suspend fun getToken(): String {
+        return savedToken.first()
+    }
+
+    suspend fun getUser(): User? {
+        return savedUser.first()
     }
 
     // delete all data from preference data store

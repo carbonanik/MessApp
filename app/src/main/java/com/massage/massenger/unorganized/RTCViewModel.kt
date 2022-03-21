@@ -4,11 +4,9 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.massage.massenger.common.*
-import com.massage.massenger.data.repository.SocketMessageRepository
-import com.massage.massenger.data.repository.UserDataRepository
-import com.massage.massenger.util.extensions.fromJson
-import com.massage.massenger.util.extensions.setPersons
-import com.massage.massenger.model.*
+import com.massage.massenger.data.repository.AuthRepository
+import com.massage.massenger.data.repository_impl.MessageRepository
+import com.massage.massenger.model.User
 import com.massage.massenger.model.enumstate.LeftReason
 import com.massage.massenger.model.enumstate.RTCConnectionType
 import com.massage.massenger.model.enumstate.RTCRequestType
@@ -17,6 +15,8 @@ import com.massage.massenger.util.ACCEPTING
 import com.massage.massenger.util.OTHER_PERSON
 import com.massage.massenger.util.REQUESTING
 import com.massage.massenger.util.REQ_OR_ACC
+import com.massage.massenger.util.extensions.fromJson
+import com.massage.massenger.util.extensions.setPersons
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -27,8 +27,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RTCViewModel @Inject constructor(
-    private val socketMessageRepository: SocketMessageRepository,
-    private val userDataRepository: UserDataRepository,
+    private val messageRepository: MessageRepository,
+    private val authRepository: AuthRepository,
     private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
@@ -38,7 +38,7 @@ class RTCViewModel @Inject constructor(
     private var thisPerson: User? = null
     private val requestingOrAccepting = savedStateHandle.get<String>(REQ_OR_ACC)
 
-    private val incomingRtc = socketMessageRepository.incomingRtcEvent
+    private val incomingRtc = messageRepository.incomingRtcEvent
     private var SDPtype: String? = null
 
 
@@ -47,7 +47,7 @@ class RTCViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            thisPerson = userDataRepository.getUser()
+            thisPerson = authRepository.getLoggedInUser()
 
             if (firstRequest && requestingOrAccepting == REQUESTING) {
                 sendRtcMessage(RtcRequest())
@@ -70,7 +70,7 @@ class RTCViewModel @Inject constructor(
             thisPerson,
             otherPerson
         ) {
-            socketMessageRepository.sendMessage(message)
+            messageRepository.sendMessage(message)
         }
     }
 

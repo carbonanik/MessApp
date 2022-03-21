@@ -7,14 +7,15 @@ import io.ktor.client.request.*
 import io.ktor.http.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import javax.inject.Inject
-import javax.inject.Singleton
 
-class UserApiServiceImpl (
+class UserApiServiceImpl(
     private val client: HttpClient
 ) : UserApiService {
 
-    override suspend fun getUserByToken(token: String): User = withContext(Dispatchers.IO) {
+    override suspend fun getUserByToken(
+        token: String
+    ): User = withContext(Dispatchers.IO) {
+
         client.get<User> {
             url(HttpRoutes.User.ME)
             headers {
@@ -23,16 +24,24 @@ class UserApiServiceImpl (
         }
     }
 
-    override suspend fun getUserByName(name: String, token: String): User  = withContext(Dispatchers.IO){
-        client.get{
+    override suspend fun queryUserByName(
+        name: String,
+        token: String
+    ): List<User> = withContext(Dispatchers.IO) {
+
+        client.get {
             url(HttpRoutes.User.GET_BY_NAME)
             parameter("name", name)
             header(HttpHeaders.Authorization, token)
         }
     }
 
-    override suspend fun getUserById(userId: String, token: String): User  = withContext(Dispatchers.IO){
-        client.get{
+    override suspend fun getUserById(
+        userId: String,
+        token: String
+    ): User = withContext(Dispatchers.IO) {
+
+        client.get {
             url(HttpRoutes.User.GET_BY_ID)
             parameter("id", userId)
             header(HttpHeaders.Authorization, token)
@@ -43,7 +52,6 @@ class UserApiServiceImpl (
         numbers: List<String>,
         token: String
     ): List<User> = withContext(Dispatchers.IO) {
-
         client.post {
             url(HttpRoutes.User.GET_BY_PHONE)
             contentType(ContentType.Application.Json)
@@ -52,9 +60,13 @@ class UserApiServiceImpl (
         }
     }
 
-    override suspend fun deleteUserById(userId: String, token: String): String = withContext(Dispatchers.IO){
-        client.delete<String>{
-            url(HttpRoutes.User.DELETE_BY_ID)
+    override suspend fun deleteUserById(
+        userId: String,
+        token: String
+    ): String = withContext(Dispatchers.IO) {
+
+        client.delete<String> {
+            url(HttpRoutes.User.DELETE)
             parameter("id", userId)
             header(HttpHeaders.Authorization, token)
         }

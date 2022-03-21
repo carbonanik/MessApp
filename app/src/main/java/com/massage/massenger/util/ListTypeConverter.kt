@@ -11,7 +11,7 @@ class ListTypeConverter {
     }
 
     @TypeConverter
-    fun uuidFromString(string: String): List<String>? {
+    fun toList(string: String): List<String>? {
         return string.fromJson<List<String>>()
     }
 }

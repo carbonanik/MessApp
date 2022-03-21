@@ -1,7 +1,7 @@
 package com.massage.massenger.data.remote.socket
 
+import com.massage.massenger.data.local.pref.UserDataSource
 import com.massage.massenger.data.remote.socket.dto.SocketMessage
-import com.massage.massenger.data.repository.UserDataRepository
 import com.massage.massenger.util.extensions.fromJson
 import com.massage.massenger.util.extensions.toJson
 import io.ktor.client.*
@@ -27,7 +27,7 @@ import javax.inject.Singleton
  */
 @Singleton
 class KtorSocket @Inject constructor(
-    private val userDataRepository: UserDataRepository
+    private val userDataSource: UserDataSource
 ) {
     private val scope = CoroutineScope(Dispatchers.IO)
 
@@ -39,8 +39,9 @@ class KtorSocket @Inject constructor(
     }
 
     private fun start() {
+        println("Ktor Socket")
         scope.launch {
-            val token = userDataRepository.getToken()
+            val token = userDataSource.getTokenFirst()
             val client = createWSClient(token)
             openSocketSession(client)
         }
@@ -65,10 +66,10 @@ class KtorSocket @Inject constructor(
                 val wsSession = client.webSocketSession(
                     method = HttpMethod.Get,
                     host = "ktor-mess-app.herokuapp.com",//"10.0.2.2", port = 8080,
-                    path = "/socket"
+                    path = "/socket/chat"
                 )
 
-                launch { wsSession.emitIncoming() }
+                launch { wsSession.receiveIncoming() }
                 launch { wsSession.sendOutgoing() }
 
             } catch (e: Exception) {
@@ -80,11 +81,11 @@ class KtorSocket @Inject constructor(
         }
     }
 
-    private suspend fun DefaultClientWebSocketSession.emitIncoming() {
+    private suspend fun DefaultClientWebSocketSession.receiveIncoming() {
         incoming.consumeEach { frame ->
             (frame as? Frame.Text)?.readText()
                 ?.fromJson<SocketMessage>()
-                ?.let { incomingMessage.emit(it) }
+                ?.let { receive(it) }
         }
     }
 
@@ -92,5 +93,9 @@ class KtorSocket @Inject constructor(
         outgoingMessage.collect {
             send(it.toJson())
         }
+    }
+
+    private suspend fun receive(m: SocketMessage){
+        incomingMessage.emit(m)
     }
 }

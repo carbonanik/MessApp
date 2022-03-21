@@ -14,8 +14,9 @@ class PostApiServiceImpl(private val client: HttpClient) : PostApiService {
 
     override suspend fun create(createPostRequest: CreatePostRequest, token: String): Post =
         withContext(Dispatchers.IO) {
-            client.post<Post> {
+            client.post {
                 url(HttpRoutes.Post.CREATE)
+                contentType(ContentType.Application.Json)
                 headers {
                     append(HttpHeaders.Authorization, token)
                 }

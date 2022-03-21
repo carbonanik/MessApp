@@ -1,18 +1,16 @@
 package com.massage.massenger.model
 
-import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import kotlinx.parcelize.Parcelize
+import com.massage.massenger.data.local.room.MessengerDatabase.Companion.USER_TABLE
 import kotlinx.serialization.Serializable
 
 
 @Serializable
-@Parcelize
-@Entity(tableName = "connection_table")
+@Entity(tableName = USER_TABLE)
 class User(
     @PrimaryKey
     val id: String,
     val name: String,
     val phone: String,
-) : Parcelable
+)

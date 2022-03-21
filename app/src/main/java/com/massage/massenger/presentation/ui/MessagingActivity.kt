@@ -1,6 +1,7 @@
 package com.massage.massenger.presentation.ui
 
-import android.Manifest
+import android.app.ActivityManager
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -8,64 +9,52 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.runtime.toMutableStateList
-import androidx.lifecycle.lifecycleScope
-import com.massage.massenger.util.extensions.loadPhotosFromExternalStorage
-import com.massage.massenger.util.extensions.myRequestPermission
-import com.massage.massenger.presentation.auth.AuthActivity
-import com.massage.massenger.presentation.messaging.AppNavigation
-import com.massage.massenger.presentation.messaging.single_chat.SingleChatViewModel
-import com.massage.massenger.presentation.ui.theme.MassengerTheme
-import com.massage.massenger.util.PermissionStatus
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import com.massage.massenger.presentation.messaging.AppScaffold
+import com.massage.massenger.presentation.ui.theme.MessengerTheme
+import com.massage.massenger.service.HelloService
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
 class MessagingActivity : AppCompatActivity() {
 
-    private val homeViewModel: MessagingActivityViewModel by viewModels()
-    private val singleChatViewModel: SingleChatViewModel by viewModels()
+    private val messagingViewModel: MessagingViewModel by viewModels()
 
+    @Suppress("EXPERIMENTAL_IS_NOT_ENABLED")
     @OptIn(
         ExperimentalMaterialApi::class,
         ExperimentalFoundationApi::class,
         ExperimentalStdlibApi::class,
-        ExperimentalCoroutinesApi::class
+        ExperimentalCoroutinesApi::class,
+        ExperimentalPermissionsApi::class
     )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        val helloService = HelloService()
+        val serviceIntent = Intent(this, helloService.javaClass)
+        if (!isServiceRunning(helloService.javaClass)) {
+            startService(serviceIntent)
+        }
+
         setContent {
-            MassengerTheme {
-                AppNavigation()
+            MessengerTheme {
+                AppScaffold()
             }
         }
-
-        myRequestPermission(
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.READ_CONTACTS
-        ) { permissionStatus ->
-            if (permissionStatus is PermissionStatus.PermissionGranted) {
-                loadPhotos()
-            }
-        }
-
-        homeViewModel.goBackToAuthActivity.observe(this, {
-            if (it) {
-                startActivity(Intent(this, AuthActivity::class.java))
-                finish()
-                homeViewModel.goBackToAuthActivity.value = false
-            }
-        })
     }
 
-    private fun loadPhotos() {
-        lifecycleScope.launch {
-            val ps = contentResolver
-                .loadPhotosFromExternalStorage().toMutableStateList()
-            singleChatViewModel.photos.addAll(ps)
+    @Suppress("DEPRECATION")
+    private fun isServiceRunning(serviceClass: Class<*>): Boolean {
+        val manager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        for (service in manager.getRunningServices(Int.MAX_VALUE)) {
+            if (serviceClass.name.equals(service.service.className)) {
+                return true
+            }
         }
+        return false
     }
+
 }

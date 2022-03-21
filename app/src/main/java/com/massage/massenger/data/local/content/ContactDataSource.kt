@@ -2,32 +2,21 @@ package com.massage.massenger.data.local.content
 
 import android.content.Context
 import android.provider.ContactsContract
-import android.telephony.PhoneNumberUtils
 import com.google.i18n.phonenumbers.PhoneNumberUtil
-import com.massage.massenger.model.Phones
-import dagger.hilt.android.qualifiers.ApplicationContext
-import java.util.*
-import javax.inject.Inject
-import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber
-
-import androidx.core.content.ContextCompat.getSystemService
-
-import android.telephony.TelephonyManager
-import androidx.compose.ui.text.toLowerCase
-import androidx.core.content.ContextCompat
 import com.massage.massenger.util.Country
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import java.lang.Exception
-import java.security.AccessController.getContext
+import javax.inject.Inject
 
 
 class ContactDataSource @Inject constructor(
     @ApplicationContext private val context: Context
 ) {
 
-    suspend fun fetchContact(): Phones = withContext(Dispatchers.IO) {
-        val phones = Phones()
+    suspend fun fetchContact(): List<String> = withContext(Dispatchers.IO) {
+        println("fetchContact")
+        val phones = mutableListOf<String>()
 
         val contacts = context.contentResolver.query(
             ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
@@ -43,14 +32,51 @@ class ContactDataSource @Inject constructor(
                 contacts.getString(contacts.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.NUMBER))
             val formattedN = internationalNumber(number)
 
-            if (!phones.phone.contains(formattedN)) {
-                phones.phone.add(formattedN)
-            }
+//            val phone = Phone(formattedN)
 
+            if (!phones.contains(formattedN)) {
+                phones.add(formattedN)
+            }
         }
         contacts?.close()
+        phones.forEach { println(it) }
         phones
     }
+
+    data class Phone(val name: String, val number: String)
+    suspend fun fetchContactWithName(): List<Phone> = withContext(Dispatchers.IO) {
+        println("fetchContact")
+        val phones = mutableListOf<Phone>()
+
+        val contacts = context.contentResolver.query(
+            ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+            null,
+            null,
+            null,
+            null
+        )
+
+        while (contacts?.moveToNext() == true) {
+
+            val number = contacts.getString(
+                contacts.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.NUMBER))
+            val name = contacts.getString(
+                contacts.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME))
+
+            val formattedN = internationalNumber(number)
+
+            val phone = Phone(name, formattedN)
+
+            if (!phones.contains(phone)) {
+                phones.add(phone)
+            }
+        }
+        contacts?.close()
+        phones.forEach { println(it) }
+        phones
+    }
+
+
 
     private fun internationalNumber(number: String): String {
 

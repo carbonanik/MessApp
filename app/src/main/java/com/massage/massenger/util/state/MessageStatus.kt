@@ -7,7 +7,8 @@ enum class MessageStatus {
     SEEN,
     FAILED,
     RECEIVED,
-    SEEN_RECEIVED;
+    SEEN_RECEIVED,
+    EMPTY_CHAT;
 
     fun isReceived(): Boolean {
         val array = values()

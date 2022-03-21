@@ -9,18 +9,18 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.massage.massenger.common.*
-import com.massage.massenger.data.repository.SocketMessageRepository
-import com.massage.massenger.data.repository.UserDataRepository
-import com.massage.massenger.unorganized.datachannel.RTConnection
-import com.massage.massenger.util.extensions.fromJson
-import com.massage.massenger.util.extensions.setPersons
-import com.massage.massenger.model.*
+import com.massage.massenger.data.repository.AuthRepository
+import com.massage.massenger.data.repository_impl.MessageRepository
+import com.massage.massenger.model.User
 import com.massage.massenger.model.enumstate.RTCConnectionType
 import com.massage.massenger.model.enumstate.RTCRequestType
+import com.massage.massenger.unorganized.datachannel.RTConnection
 import com.massage.massenger.util.ACCEPTING
 import com.massage.massenger.util.OTHER_PERSON
 import com.massage.massenger.util.REQUESTING
 import com.massage.massenger.util.REQ_OR_ACC
+import com.massage.massenger.util.extensions.fromJson
+import com.massage.massenger.util.extensions.setPersons
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
@@ -35,8 +35,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DataChannelViewModel @Inject constructor(
-    private val userDataRepository: UserDataRepository,
-    private val socketMessageRepository: SocketMessageRepository,
+    private val authRepository: AuthRepository,
+    private val messageRepository: MessageRepository,
     savedStateHandle: SavedStateHandle,
     @ApplicationContext private val context: Context
 ) : ViewModel() {
@@ -50,7 +50,7 @@ class DataChannelViewModel @Inject constructor(
     private val requestingOrAccepting = savedStateHandle.get<String>(REQ_OR_ACC)
     private var rtcConnection: RTConnection? = null
 
-    private val incomingRtc = socketMessageRepository.incomingRtcEvent
+    private val incomingRtc = messageRepository.incomingRtcEvent
     private var firstRequest = true
 
     fun init() {
@@ -65,7 +65,7 @@ class DataChannelViewModel @Inject constructor(
         )
         rtcConnection?.initialized()
         viewModelScope.launch {
-            thisPerson = userDataRepository.getUser()
+            thisPerson = authRepository.getLoggedInUser()
             if (firstRequest && requestingOrAccepting == REQUESTING) {
                 sendRtcMessage(
                     RtcRequest(
@@ -129,7 +129,7 @@ class DataChannelViewModel @Inject constructor(
             thisPerson,
             otherPerson
         ) {
-            socketMessageRepository.sendMessage(message)
+            messageRepository.sendMessage(message)
         }
     }
 

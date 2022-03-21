@@ -11,56 +11,80 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.app.TaskStackBuilder
 import com.massage.massenger.R
-import com.massage.massenger.presentation.ui.MessagingActivity
+import com.massage.massenger.model.Chat
+import com.massage.massenger.model.ChatMessage
+import com.massage.massenger.presentation.navigation.SingleChatScreen
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
-class MyNotificationManager @Inject constructor (@ApplicationContext private val context: Context) {
+class MyNotificationManager @Inject constructor(@ApplicationContext private val context: Context) {
 
     @RequiresApi(Build.VERSION_CODES.O)
-    fun startMyOwnForeground(service: HelloService, notification: Notification) {
-        val channel = NotificationChannel(NOTIFICATION_CHANNEL_ID, channelName, NotificationManager.IMPORTANCE_NONE)
+    fun createFloatingNotificationChannel() {
+        createChannel(FLOATING_CHANNEL_ID, FLOATING_CHANNEL_NAME)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun createMessageNotificationChannel() {
+        createChannel(MESSAGE_CHANNEL_ID, MESSAGE_CHANNEL_NAME)
+    }
+
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun createChannel(id: String, name: String) {
+        val channel = NotificationChannel(id, name, NotificationManager.IMPORTANCE_NONE)
         channel.lightColor = Color.BLUE
         channel.lockscreenVisibility = Notification.VISIBILITY_PRIVATE
 
-        val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        manager.createNotificationChannel(channel)
-
-        service.startForeground(1, notification)
+        val manager = context.getNotificationManager()
+        manager?.createNotificationChannel(channel)
     }
 
-    fun newNotification(): Notification {
-        val notificationBuild = NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
-        return notificationBuild.setOngoing(true)
-            .setSmallIcon(R.drawable.ic_baseline_chat_24)
-            .setContentTitle("App Is Running In Background")
-            .setPriority(NotificationManager.IMPORTANCE_DEFAULT)
-            .setCategory(Notification.CATEGORY_SERVICE)
-            .build()
+    fun sendNotification(notificationData: NotificationData, notificationId: Int) {
+        with(NotificationManagerCompat.from(context)) {
+            notify(notificationId, notificationBuilder(notificationData).build())
+        }
     }
 
-
-    fun sendNotification(title: String, contentText: String, notificationId: Int) {
-        val intent = Intent(context, MessagingActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+    private fun notificationBuilder(notificationData: NotificationData) =
+        NotificationCompat.Builder(context, MESSAGE_CHANNEL_ID).apply {
+            setSmallIcon(R.drawable.ic_baseline_chat_24)
+            setContentTitle(notificationData.chat.name)
+            setContentText(notificationData.chatMessage.text ?: "New Message")
+            setContentIntent(buildPendingIntent(notificationData.chat))
+            setAutoCancel(true)
         }
 
-        val pendingIntent = PendingIntent.getActivity(context, 0, intent, 0)
-        val builder = NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_baseline_chat_24)
-                .setContentTitle(title)
-                .setContentText(contentText)
-                .setContentIntent(pendingIntent)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+    private fun buildPendingIntent(chat: Chat): PendingIntent? {
+        val openChatIntent = Intent(
+            Intent.ACTION_VIEW,
+            SingleChatScreen.getDeepLink(chat)
+//            "app://com.massage.massenger/test".toUri()
+        )
 
-        with(NotificationManagerCompat.from(context)) {
-            notify(notificationId, builder.build())
+        return TaskStackBuilder.create(context).run {
+            addNextIntentWithParentStack(openChatIntent)
+            getPendingIntent(
+                REQUEST_CODE_OPEN_CHAT,
+                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+            )
         }
     }
 
     companion object {
-        const val NOTIFICATION_CHANNEL_ID = "example.permanence"
-        const val channelName = "Background Service"
+        const val FLOATING_CHANNEL_ID = "floating_notification_channel"
+        const val MESSAGE_CHANNEL_ID = "messapp_notification_channel"
+
+        const val FLOATING_CHANNEL_NAME = "Floating Notification Channel"
+        const val MESSAGE_CHANNEL_NAME = "Messapp Notification Channel"
+        const val REQUEST_CODE_OPEN_CHAT = 1_121_111
     }
 }
+
+
+data class NotificationData(
+    val chatMessage: ChatMessage,
+    val chat: Chat
+)

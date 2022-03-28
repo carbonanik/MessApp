@@ -39,7 +39,6 @@ class ContactDataSource @Inject constructor(
             }
         }
         contacts?.close()
-        phones.forEach { println(it) }
         phones
     }
 

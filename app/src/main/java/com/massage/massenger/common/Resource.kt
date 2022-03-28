@@ -7,5 +7,6 @@ sealed class Resource<T>(
 ) {
     class Loading<T>(data: T? = null) : Resource<T>(isLoading = true, data = data)
     class Success<T>(data: T) : Resource<T>(data = data)
-    class Error<T>(message: String, data: T? = null) : Resource<T>(data = data, errorMessage = message)
+    class Error<T>(message: String, data: T? = null, val authenticationNeeded: Boolean = false) :
+        Resource<T>(data = data, errorMessage = message)
 }

@@ -23,7 +23,7 @@ class GroupRepository @Inject constructor(
 ) {
 
     fun createGroup(createGroupRequest: CreateGroupRequest): Flow<Resource<Group>> =
-        boundSave(
+        boundFetchSave(
             fetch = { groupApiService.createGroup(createGroupRequest, token()) },
             save = {
                 groupDao.insertGroup(it)
@@ -32,11 +32,11 @@ class GroupRepository @Inject constructor(
         )
 
     fun addUserToGroup(addMemberToGroupRequest: AddMemberToGroupRequest): Flow<Resource<Group>> =
-        boundSave(fetch = { groupApiService.addMemberToGroup(addMemberToGroupRequest, token()) },
+        boundFetchSave(fetch = { groupApiService.addMemberToGroup(addMemberToGroupRequest, token()) },
             save = { groupDao.insertGroup(it) })
 
     fun getAllGroupForUser(userId: String) =
-        boundCache(
+        boundCacheFetchSave(
             query = { groupDao.getAllGroup().first() },
             fetch = { groupApiService.getAllGroupForUser(userId, token()) },
             saveFetched = { groupDao.insertGroup(*it.toTypedArray()) }

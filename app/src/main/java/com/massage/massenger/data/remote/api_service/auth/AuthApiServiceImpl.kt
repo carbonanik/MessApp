@@ -6,6 +6,7 @@ import com.massage.massenger.data.remote.api_service.auth.dto.AuthResponse
 import io.ktor.client.*
 import io.ktor.client.request.*
 import io.ktor.http.*
+import io.ktor.util.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -32,6 +33,7 @@ class AuthApiServiceImpl(
         }
     }
 
+    @OptIn(InternalAPI::class)
     override suspend fun refreshAuth(token: String) = withContext(Dispatchers.IO) {
         client.get<AuthResponse> {
             url(HttpRoutes.Auth.REFRESH)

@@ -12,7 +12,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.massage.massenger.presentation.messaging.chat_list.ProfileCircle
+import com.massage.massenger.presentation.messaging.chat_list.NameBox
 import com.massage.massenger.presentation.ui.theme.MessengerTheme
 
 @Composable
@@ -20,7 +20,7 @@ fun ProfileViewScreen() {
     val name = "Sheikh Anik"
     Surface {
         Column(Modifier.padding(16.dp)) {
-            ProfileCircle(
+            NameBox(
                 modifier = Modifier
                     .fillMaxWidth()
                     .aspectRatio(1f)

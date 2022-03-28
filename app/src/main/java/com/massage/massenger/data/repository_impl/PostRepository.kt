@@ -18,25 +18,25 @@ class PostRepository @Inject constructor(
     private val postDao: PostDao
 ) {
     fun createPost(createPostRequest: CreatePostRequest): Flow<Resource<Post>> =
-        boundSave(fetch = { postApiService.create(createPostRequest, token()) },
+        boundFetchSave(fetch = { postApiService.create(createPostRequest, token()) },
             save = { postDao.insertPost(it) })
 
     fun getPostById(postId: String) =
-        boundCache(query = { postDao.getPost(postId) },
+        boundCacheFetchSave(query = { postDao.getPost(postId) },
             fetch = { postApiService.getById(postId, token()) },
             saveFetched = { postDao.insertPost(it) })
 
     fun getAllPostOfUser(userId: String) =
-        boundCache(query = { postDao.getAllPostOf(userId) },
+        boundCacheFetchSave(query = { postDao.getAllPostOf(userId) },
             fetch = { postApiService.getOfUser(userId, token()) },
             saveFetched = { postDao.insertPost(*it.toTypedArray()) })
 
     fun getAllUntil(time: Long): Flow<Resource<List<Post>>> =
-        bound { postApiService.getAllUntil(time, token()) }
+        boundFetch { postApiService.getAllUntil(time, token()) }
 
 
     fun getAllBetween(oldTime: Long, newTime: Long) =
-        bound { postApiService.getAllBetween(oldTime, newTime, token()) }
+        boundFetch { postApiService.getAllBetween(oldTime, newTime, token()) }
 
 
     private suspend fun token() = userDataSource.getTokenFirst()

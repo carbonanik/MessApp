@@ -1,4 +1,4 @@
-package com.massage.massenger.presentation.messaging.ongoing_video_call
+package com.massage.massenger.presentation.messaging.video_call.incoming_video_call
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

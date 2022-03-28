@@ -2,11 +2,13 @@
 
 ## Simple And Open Source Messaging App
 
-A simple social media app for Android. This is a solo developed app.
+A simple social media app for Android.
+
+This app is for make you less distracted on social media. And more productive on real life.
 
 ---
 
-This app is currently under development. Please use it at your own risk.
+This app is currently under development. Please use it at your own risk. Any type of feedback is welcome.
 
 ## Main Feature and Functionality (With Description)
 
@@ -36,11 +38,11 @@ Compose.
 
 You can get this app from:
 
-- Play Store
+- Play Store (Upcoming)
 
 ## Contribute
 
-If you found a bug please report [here]()
+If you found a bug please report [here](https://github.com/carbonanik/MessApp/issues/new)
 
 If you wan a new feature or any change in existing feature. Please pull request.
 
@@ -65,11 +67,9 @@ See [here](http://licencing.com) for a list of used libraries and associated lic
 
 You can directly contact me on social media
 
-- LinkedIn
-- Twitter
-- Whatsapp
-- Facebook
-- Instagram
+- [LinkedIn](https://www.linkedin.com/in/carbonanik)
+- [Twitter](https://twitter.com/carbonanik)
+- [Facebook](https://www.facebook.com/carbon.anik)
 
 or,
 

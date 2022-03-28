@@ -23,7 +23,7 @@ import kotlinx.parcelize.Parcelize
 import kotlinx.parcelize.RawValue
 
 @Composable
-fun ProfileCircle(
+fun NameBox(
     modifier: Modifier,
     name: String,
     textSize: TextUnit = 20.sp,

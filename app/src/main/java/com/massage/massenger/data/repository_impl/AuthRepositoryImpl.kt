@@ -6,7 +6,7 @@ import com.massage.massenger.data.local.room.MessengerDatabase
 import com.massage.massenger.data.remote.api_service.auth.AuthApiService
 import com.massage.massenger.data.remote.api_service.auth.dto.AuthRequest
 import com.massage.massenger.data.remote.api_service.auth.dto.AuthResponse
-import com.massage.massenger.data.remote.api_service.auth.dto.getUser
+import com.massage.massenger.data.remote.api_service.auth.dto.userFromAuth
 import com.massage.massenger.data.repository.AuthRepository
 
 
@@ -17,19 +17,19 @@ class AuthRepositoryImpl(
 ): AuthRepository {
 
     override suspend fun login(phone: String, password: String) =
-        boundSave(
+        boundFetchSave(
             fetch = { authApiService.login(AuthRequest(null, phone, password)) },
             save = { saveFetchedAuthResult(it) }
         )
 
     override suspend fun signUp(name: String, phone: String, password: String) =
-        boundSave(
+        boundFetchSave(
             fetch = { authApiService.signUp(AuthRequest(name, phone, password)) },
             save = { saveFetchedAuthResult(it) }
         )
 
     override suspend fun refreshAuth() =
-        boundSave(
+        boundFetchSave(
             fetch = { authApiService.refreshAuth(token()) },
             save = { saveFetchedAuthResult(it) }
         )
@@ -37,7 +37,7 @@ class AuthRepositoryImpl(
     private suspend fun saveFetchedAuthResult(response: AuthResponse?) {
         response?.let { auth ->
             userDataSource.saveToken(auth.authToken)
-            userDataSource.saveUser(auth.getUser())
+            userDataSource.saveUser(auth.userFromAuth())
         }
     }
 

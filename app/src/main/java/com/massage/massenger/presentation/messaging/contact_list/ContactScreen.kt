@@ -29,8 +29,10 @@ import androidx.navigation.NavController
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberPermissionState
 import com.massage.massenger.model.User
-import com.massage.massenger.presentation.messaging.chat_list.ProfileCircle
+import com.massage.massenger.presentation.messaging.chat_list.NameBox
+import com.massage.massenger.presentation.navigation.LoginScreen
 import com.massage.massenger.presentation.navigation.SingleChatScreen
+import com.massage.massenger.presentation.navigation.popNavigate
 import com.massage.massenger.presentation.ui.MessagingViewModel
 import com.massage.massenger.presentation.ui.theme.MessengerTheme
 import com.massage.massenger.util.isPermanentlyDenied
@@ -41,7 +43,7 @@ import com.massage.massenger.util.object_id.ObjectId
 @Composable
 fun ContactScreen(
     viewModel: MessagingViewModel,
-    chatNavController: NavController
+    navController: NavController
 ) {
 
     val permissionState = rememberPermissionState(
@@ -74,6 +76,14 @@ fun ContactScreen(
     val isLoading by viewModel.isLoading.collectAsState()
     val errorMessage by viewModel.errorMessage.collectAsState()
 
+    if (viewModel.navigateBackToLoginScreen){
+        navController.popNavigate(LoginScreen())
+        viewModel.navigateBackToLoginScreen = false
+    }
+
+
+
+
     LaunchedEffect(key1 = lifecycleOwner) {
 
         when {
@@ -99,7 +109,7 @@ fun ContactScreen(
         errorMessage,
         noPermissionText
     ) { user ->
-        chatNavController.navigate(SingleChatScreen(user = user))
+        navController.navigate(SingleChatScreen(user = user))
     }
 }
 
@@ -128,7 +138,7 @@ fun ContactScreenContent(
         }
 
         LazyColumn(content = {
-            items(testConnections) { user -> // todo
+            items(connections) { user -> // todo
                 ContactView(Modifier.animateItemPlacement(),
                     connection = user, onContactClick = onContactClick)
             }
@@ -158,7 +168,7 @@ fun ContactView(modifier: Modifier = Modifier, connection: User, onContactClick:
 //                    imageVector = Icons.Default.Face,
 //                    contentDescription = "Contact Image"
 //                )
-                ProfileCircle(
+                NameBox(
                     modifier = Modifier
                         .size(40.dp)
                         .align(Alignment.CenterVertically),

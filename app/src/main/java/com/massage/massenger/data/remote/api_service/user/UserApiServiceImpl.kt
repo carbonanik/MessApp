@@ -5,6 +5,7 @@ import com.massage.massenger.model.User
 import io.ktor.client.*
 import io.ktor.client.request.*
 import io.ktor.http.*
+import io.ktor.util.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -12,6 +13,7 @@ class UserApiServiceImpl(
     private val client: HttpClient
 ) : UserApiService {
 
+    @OptIn(InternalAPI::class)
     override suspend fun getUserByToken(
         token: String
     ): User = withContext(Dispatchers.IO) {

@@ -38,6 +38,8 @@ class SingleChatViewModel @Inject constructor(
     private val _viewState = MutableStateFlow(SingleChatDataState())
     val viewState = _viewState.asStateFlow()
 
+//    var singleChatViewState by mutableStateOf(SingleChatDataState())
+
     fun getSingleChatDataState(chat: Chat?, user: User?) {
         initAllData(chat, user)
     }

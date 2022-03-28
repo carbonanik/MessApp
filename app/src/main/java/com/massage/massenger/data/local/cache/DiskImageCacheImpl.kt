@@ -22,7 +22,7 @@ class DiskImageCacheImpl constructor(
         DiskLruCache.open(
             context.cacheDir,
             versionCode, 1,
-            1 * 1024 * 1024
+            1 * 1024 * 1024L
         )
 
     override suspend fun addImage(url: String, bitmap: Bitmap) = withContext(Dispatchers.IO){

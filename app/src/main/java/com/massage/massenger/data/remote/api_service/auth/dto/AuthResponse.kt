@@ -11,4 +11,4 @@ data class AuthResponse(
     val phone: String
 )
 
-fun AuthResponse.getUser() = User(id, name, phone)
+fun AuthResponse.userFromAuth() = User(id, name, phone)

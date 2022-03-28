@@ -18,31 +18,35 @@ class UserRepository @Inject constructor(
     private val contactDataSource: ContactDataSource
 ) {
     fun getUserByToken(): Flow<Resource<User>> =
-        boundSave(fetch = { userApiService.getUserByToken(token()) },
+        boundFetchSave(fetch = { userApiService.getUserByToken(token()) },
             save = { userDataSource.saveUser(it) })
 
     fun getUserByName(name: String) =
-        bound { userApiService.queryUserByName(name, token()) }
+        boundFetch { userApiService.queryUserByName(name, token()) }
 
     fun getUserById(userId: String) =
-        boundCache(query = { userDao.getUser(userId) },
+        boundCacheFetchSave(query = { userDao.getUser(userId) },
             fetch = { userApiService.getUserById(userId, token()) },
             saveFetched = { userDao.insertUser(it) }
         )
 
-    fun getUsersByPhonesAndSave() = boundSave(
+    fun getUsersByPhonesAndSave() = boundFetchSave(
 //        query = { userDao.getAllUser().first() },
         fetch = {
             val numbers = contactDataSource.fetchContact()
-            userApiService.getUsersByPhones(numbers, token())
+            println(numbers)
+            val a = userApiService.getUsersByPhones(numbers, token())
+            println(a)
+            a
         },
         save = {
-            userDao.insertUser(*it.toTypedArray()) },
+            userDao.insertUser(*it.toTypedArray())
+               },
 //        shouldFetch = { false }
     )
 
     fun deleteUserById(userId: String) =
-        bound { userApiService.deleteUserById(userId, token()) }
+        boundFetch { userApiService.deleteUserById(userId, token()) }
 
     suspend fun getUserByIdLocal(id: String?): User? {
         val user = userDao.getUser(id)

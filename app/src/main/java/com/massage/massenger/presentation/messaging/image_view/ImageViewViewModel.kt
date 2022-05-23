@@ -3,8 +3,6 @@ package com.massage.massenger.presentation.messaging.image_view
 import android.graphics.Bitmap
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.asImageBitmap
-import androidx.compose.ui.graphics.painter.BitmapPainter
 import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalContext
@@ -61,20 +59,20 @@ fun rememberDiskCacheImagePainter(url: String?): Painter {
     var diskCacheChecking by remember { mutableStateOf(true) }
     var cacheExist by remember { mutableStateOf(false) }
 
-    LaunchedEffect(key1 = url, block = {
-        scope.launch {
-            val bitmap = url?.let { imageCache.getImage(it) }
-
-            if (bitmap != null){
-                image =  BitmapPainter(bitmap.asImageBitmap())
-                cacheExist = true
-                diskCacheChecking = false
-                imageCache.addImage(url, bitmap)
-            }
-
-            diskCacheChecking = false
-        }
-    })
+//    LaunchedEffect(key1 = url, block = {
+//        scope.launch {
+//            val bitmap = url?.let { imageCache.getImage(it) }
+//
+//            if (bitmap != null){
+//                image =  BitmapPainter(bitmap.asImageBitmap())
+//                cacheExist = true
+//                diskCacheChecking = false
+//                imageCache.addImage(url, bitmap)
+//            }
+//
+//            diskCacheChecking = false
+//        }
+//    })
 
     if (!diskCacheChecking && !cacheExist){
         image = rememberImagePainter(url)

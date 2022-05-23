@@ -2,46 +2,39 @@ package com.massage.massenger.presentation.ui
 
 import android.app.ActivityManager
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.material.ExperimentalMaterialApi
-import com.google.accompanist.permissions.ExperimentalPermissionsApi
-import com.massage.massenger.presentation.messaging.AppScaffold
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.massage.massenger.presentation.navigation.NavGraphs
 import com.massage.massenger.presentation.ui.theme.MessengerTheme
-import com.massage.massenger.service.HelloService
+import com.ramcosta.composedestinations.DestinationsNavHost
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 
 @AndroidEntryPoint
 class MessagingActivity : AppCompatActivity() {
 
-    private val messagingViewModel: MessagingViewModel by viewModels()
+    private val messagingActivityViewModel: MessagingActivityViewModel by viewModels()
 
-    @Suppress("EXPERIMENTAL_IS_NOT_ENABLED")
-    @OptIn(
-        ExperimentalMaterialApi::class,
-        ExperimentalFoundationApi::class,
-        ExperimentalStdlibApi::class,
-        ExperimentalCoroutinesApi::class,
-        ExperimentalPermissionsApi::class
-    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val helloService = HelloService()
-        val serviceIntent = Intent(this, helloService.javaClass)
-        if (!isServiceRunning(helloService.javaClass)) {
-            startService(serviceIntent)
+//        val helloService = HelloService()
+//        val serviceIntent = Intent(this, helloService.javaClass)
+//        if (!isServiceRunning(helloService.javaClass)) {
+//            startService(serviceIntent)
+//        }
+
+        installSplashScreen().setKeepOnScreenCondition {
+            messagingActivityViewModel.isLoading
         }
 
         setContent {
             MessengerTheme {
-                AppScaffold()
+                DestinationsNavHost(navGraph = NavGraphs.root)
+//                AppScaffold(messagingActivityViewModel.startDestination)
             }
         }
     }

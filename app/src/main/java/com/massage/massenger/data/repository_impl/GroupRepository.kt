@@ -1,6 +1,6 @@
 package com.massage.massenger.data.repository_impl
 
-import com.massage.massenger.common.Resource
+import com.massage.massenger.common.NetworkState
 import com.massage.massenger.data.local.pref.UserDataSource
 import com.massage.massenger.data.local.room.dao.ChatDao
 import com.massage.massenger.data.local.room.dao.GroupDao
@@ -22,7 +22,7 @@ class GroupRepository @Inject constructor(
     private val groupDao: GroupDao
 ) {
 
-    fun createGroup(createGroupRequest: CreateGroupRequest): Flow<Resource<Group>> =
+    fun createGroup(createGroupRequest: CreateGroupRequest): Flow<NetworkState<Group>> =
         boundFetchSave(
             fetch = { groupApiService.createGroup(createGroupRequest, token()) },
             save = {
@@ -31,7 +31,7 @@ class GroupRepository @Inject constructor(
             }
         )
 
-    fun addUserToGroup(addMemberToGroupRequest: AddMemberToGroupRequest): Flow<Resource<Group>> =
+    fun addUserToGroup(addMemberToGroupRequest: AddMemberToGroupRequest): Flow<NetworkState<Group>> =
         boundFetchSave(fetch = { groupApiService.addMemberToGroup(addMemberToGroupRequest, token()) },
             save = { groupDao.insertGroup(it) })
 
@@ -44,5 +44,5 @@ class GroupRepository @Inject constructor(
 
     suspend fun getCachedGroupById(groupId: String?) = groupDao.getGroup(groupId)
 
-    private suspend fun token() = userDataSource.getTokenFirst()
+    private suspend fun token() = userDataSource.getToken()
 }

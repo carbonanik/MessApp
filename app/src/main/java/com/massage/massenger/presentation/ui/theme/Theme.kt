@@ -7,7 +7,7 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
-private val YellowThemeLight = lightColors(
+private val BlueThemeLight = lightColors(
     primary = green700,
     primaryVariant = green500,
     onPrimary = greenDarkPrimary,
@@ -16,24 +16,24 @@ private val YellowThemeLight = lightColors(
     onSecondary = Color.White
 )
 
-private val YellowThemeDark = darkColors(
-    primary = GrayBlue2,
-    primaryVariant = GrayBlue1,
-    onPrimary = DarkBlue2,
-    secondary = Blue1,
-    secondaryVariant = DarkBlue3,
+private val BlueThemeDark = darkColors(
+    primary = pink500,
+    primaryVariant = purple700,
+    onPrimary = darkBlue2,
+    secondary = blue1,
+    secondaryVariant = darkBlue3,
     onSecondary = Color.Black,
-    surface = DarkBlue2,
-    onSurface = GrayBlue2,
-    background = DarkBlue1,
-    onBackground = GrayBlue2,
+    surface = darkBlue2,
+    onSurface = grayBlue2,
+    background = darkBlue1,
+    onBackground = grayBlue2,
 //    error =,
 //    onError =,
 )
 
 @Composable
 fun MessengerTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable() () -> Unit) {
-    val colors = YellowThemeDark
+    val colors = BlueThemeDark
 //        if (darkTheme) {
 //        YellowThemeDark
 //    } else {

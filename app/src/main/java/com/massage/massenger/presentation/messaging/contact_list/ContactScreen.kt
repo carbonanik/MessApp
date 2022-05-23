@@ -14,13 +14,15 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Error
 import androidx.compose.material.icons.filled.Info
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.Lifecycle
@@ -30,28 +32,22 @@ import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberPermissionState
 import com.massage.massenger.model.User
 import com.massage.massenger.presentation.messaging.chat_list.NameBox
-import com.massage.massenger.presentation.navigation.LoginScreen
+import com.massage.massenger.presentation.navigation.SignInScreen
 import com.massage.massenger.presentation.navigation.SingleChatScreen
 import com.massage.massenger.presentation.navigation.popNavigate
-import com.massage.massenger.presentation.ui.MessagingViewModel
-import com.massage.massenger.presentation.ui.theme.MessengerTheme
 import com.massage.massenger.util.isPermanentlyDenied
-import com.massage.massenger.util.object_id.ObjectId
 
 
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun ContactScreen(
-    viewModel: MessagingViewModel,
+    viewModel: ContactScreenViewModel,
     navController: NavController
 ) {
 
     val permissionState = rememberPermissionState(
         permission = Manifest.permission.READ_CONTACTS
     )
-    var noPermissionText by remember {
-        mutableStateOf<String?>(null)
-    }
 
     val lifecycleOwner = LocalLifecycleOwner.current
 
@@ -72,43 +68,34 @@ fun ContactScreen(
 
     })
 
-    val connections by viewModel.connections.collectAsState(initial = emptyList())
-    val isLoading by viewModel.isLoading.collectAsState()
-    val errorMessage by viewModel.errorMessage.collectAsState()
-
-    if (viewModel.navigateBackToLoginScreen){
-        navController.popNavigate(LoginScreen())
+    if (viewModel.navigateBackToLoginScreen) {
+        navController.popNavigate(SignInScreen())
         viewModel.navigateBackToLoginScreen = false
     }
 
 
 
 
-    LaunchedEffect(key1 = lifecycleOwner) {
+    LaunchedEffect(key1 = permissionState) {
 
         when {
             permissionState.hasPermission -> {
-                viewModel.loadContactScreenData()
-                noPermissionText = null
+                viewModel.loadData()
+                viewModel.updatePermissionText(null)
             }
             permissionState.shouldShowRationale -> {
-                noPermissionText = "Storage Permission Needed"
+                viewModel.updatePermissionText("Contact Permission Needed")
             }
             permissionState.isPermanentlyDenied() -> {
-                noPermissionText =
-                    "Camera Permission was permanently denied. You can enable it " +
+                viewModel.updatePermissionText(
+                    "Contact Permission was permanently denied. You can enable it " +
                             "from the app setting"
+                )
             }
         }
-
     }
 
-    ContactScreenContent(
-        connections,
-        isLoading,
-        errorMessage,
-        noPermissionText
-    ) { user ->
+    ContactScreenContent(viewModel.dataState) { user ->
         navController.navigate(SingleChatScreen(user = user))
     }
 }
@@ -116,31 +103,30 @@ fun ContactScreen(
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ContactScreenContent(
-    connections: List<User>,
-    isLoading: Boolean,
-    errorMessage: String?,
-    noPermissionText: String?,
+    dataState: ContactScreenDataState,
     onContactClick: (user: User) -> Unit
 ) {
 
     Column {
 
-        AnimatedVisibility(visible = isLoading && errorMessage == null) {
+        AnimatedVisibility(visible = dataState.isLoading && dataState.errorMessage == null) {
             StatusBar(statusText = "Updating Contacts", loadingIndicator = true)
         }
 
-        AnimatedVisibility(visible = errorMessage != null) {
-            StatusBar(statusText = errorMessage ?: "", icon = Icons.Default.Error)
+        AnimatedVisibility(visible = dataState.errorMessage != null) {
+            StatusBar(statusText = dataState.errorMessage ?: "", icon = Icons.Default.Error)
         }
 
-        AnimatedVisibility(visible = noPermissionText != null) {
+        AnimatedVisibility(visible = dataState.permissionText != null) {
             AskPermission()
         }
 
         LazyColumn(content = {
-            items(connections) { user -> // todo
-                ContactView(Modifier.animateItemPlacement(),
-                    connection = user, onContactClick = onContactClick)
+            items(dataState.contacts) { user -> // todo
+                ContactView(
+                    Modifier.animateItemPlacement(),
+                    connection = user, onContactClick = onContactClick
+                )
             }
         })
     }
@@ -148,7 +134,11 @@ fun ContactScreenContent(
 }
 
 @Composable
-fun ContactView(modifier: Modifier = Modifier, connection: User, onContactClick: (user: User) -> Unit) {
+fun ContactView(
+    modifier: Modifier = Modifier,
+    connection: User,
+    onContactClick: (user: User) -> Unit
+) {
     Surface(modifier = modifier) {
         Column {
             Row(
@@ -163,16 +153,13 @@ fun ContactView(modifier: Modifier = Modifier, connection: User, onContactClick:
                     ),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-//                Icon(
-//                    modifier = Modifier.size(40.dp),
-//                    imageVector = Icons.Default.Face,
-//                    contentDescription = "Contact Image"
-//                )
+
                 NameBox(
                     modifier = Modifier
                         .size(40.dp)
                         .align(Alignment.CenterVertically),
-                    name = connection.name)
+                    name = connection.name
+                )
                 Spacer(Modifier.width(15.dp))
                 Column {
                     Text(text = connection.name, fontSize = 20.sp)
@@ -214,7 +201,7 @@ fun StatusBar(
             )
             else Icon(icon, null)
             Spacer(modifier = Modifier.width(8.dp))
-            Text(text = statusText, fontSize = 10.sp)
+            Text(text = statusText, fontSize = 10.sp, maxLines = 1, overflow = TextOverflow.Ellipsis)
         }
     }
 }
@@ -255,145 +242,3 @@ fun AskPermission() {
         }
     }
 }
-
-
-@Preview
-@Composable
-fun ContactScreenPrev() {
-    MessengerTheme {
-        ContactScreenContent(
-            connections = testConnections,
-            isLoading = false,
-            errorMessage = null,
-            noPermissionText = null,
-            onContactClick = {}
-        )
-    }
-}
-
-
-@Preview
-@Composable
-fun PersonPreview() {
-    MessengerTheme {
-        Column {
-            StatusBar(statusText = "Updating Contacts", loadingIndicator = true)
-            AskPermission()
-            ContactView(
-                connection = User(
-                    id = "01",
-                    name = "Anik",
-                    phone = "01766785027"
-                ),
-                onContactClick = {}
-            )
-            ContactView(
-                connection = User(
-                    id = "01",
-                    name = "Anik",
-                    phone = "01766785027"
-                ),
-                onContactClick = {}
-            )
-        }
-    }
-}
-
-
-val testConnections = listOf(
-    User(
-        id = ObjectId().toString(),
-        name = "Mia Maruf",
-        phone = "8801708653739"
-    ),
-    User(
-        id = ObjectId().toString(),
-        name = "Bipu Atikur",
-        phone = "8801509926113"
-    ),
-    User(
-        id = ObjectId().toString(),
-        name = "Amin Parves",
-        phone = "8801877851774"
-    ),
-    User(
-        id = ObjectId().toString(),
-        name = "Huda Jakir",
-        phone = "8801415582161"
-    ),
-    User(
-        id = ObjectId().toString(),
-        name = "Nur Jannatul",
-        phone = "8801682262208"
-    ),
-    User(
-        id = ObjectId().toString(),
-        name = "Hassan Parvase",
-        phone = "8801120145640"
-    ),
-    User(
-        id = ObjectId().toString(),
-        name = "Mohammad Mijanur",
-        phone = "8801729212768"
-    ),
-    User(
-        id = ObjectId().toString(),
-        name = "Hassan Sayed",
-        phone = "8801714157093"
-    ),
-    User(
-        id = ObjectId().toString(),
-        name = "Mijan Ujjol",
-        phone = "8801372471236"
-    ),
-    User(
-        id = ObjectId().toString(),
-        name = "Nipa Habiba",
-        phone = "8801466416095"
-    ),
-    User(
-        id = ObjectId().toString(),
-        name = "Bulbul Ashraful",
-        phone = "8801111888103"
-    ),
-    User(
-        id = ObjectId().toString(),
-        name = "Sheikh Bristi",
-        phone = "8801869342270"
-    ),
-    User(
-        id = ObjectId().toString(),
-        name = "Khatun Mariam",
-        phone = "8801295870344"
-    ),
-    User(
-        id = ObjectId().toString(),
-        name = "Ruhul Hossen",
-        phone = "8801314197651"
-    ),
-    User(
-        id = ObjectId().toString(),
-        name = "Sheikh Shamsun",
-        phone = "8801886050838"
-    ),
-    User(
-        id = ObjectId().toString(),
-        name = "Tareq Mijanur",
-        phone = "8801356846797"
-    ),
-    User(
-        id = ObjectId().toString(),
-        name = "Jakir Al-Amin",
-        phone = "8801406392893"
-    ),
-    User(
-        id = ObjectId().toString(),
-        name = "Ishita Sumiya",
-        phone = "8801637317281"
-    ),
-    User(
-        id = ObjectId().toString(),
-        name = "Kaji Joynal",
-        phone = "8801279761370"
-    ),
-)

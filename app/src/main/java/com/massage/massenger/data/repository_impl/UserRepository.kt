@@ -1,12 +1,11 @@
 package com.massage.massenger.data.repository_impl
 
-import com.massage.massenger.common.Resource
 import com.massage.massenger.data.local.content.ContactDataSource
 import com.massage.massenger.data.local.pref.UserDataSource
 import com.massage.massenger.data.local.room.dao.UserDao
 import com.massage.massenger.data.remote.api_service.user.UserApiService
 import com.massage.massenger.model.User
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -17,47 +16,31 @@ class UserRepository @Inject constructor(
     private val userApiService: UserApiService,
     private val contactDataSource: ContactDataSource
 ) {
-    fun getUserByToken(): Flow<Resource<User>> =
-        boundFetchSave(fetch = { userApiService.getUserByToken(token()) },
-            save = { userDataSource.saveUser(it) })
 
-    fun getUserByName(name: String) =
-        boundFetch { userApiService.queryUserByName(name, token()) }
-
-    fun getUserById(userId: String) =
-        boundCacheFetchSave(query = { userDao.getUser(userId) },
-            fetch = { userApiService.getUserById(userId, token()) },
-            saveFetched = { userDao.insertUser(it) }
-        )
-
-    fun getUsersByPhonesAndSave() = boundFetchSave(
-//        query = { userDao.getAllUser().first() },
+    fun getUsersByPhonesAndSave() = boundCacheFetchSave(
+        query = { userDao.getAllUser().first() },
         fetch = {
             val numbers = contactDataSource.fetchContact()
-            println(numbers)
-            val a = userApiService.getUsersByPhones(numbers, token())
-            println(a)
-            a
+            userApiService.getUsersByPhones(numbers, token())
         },
-        save = {
+        saveFetched = {
+            userDataSource.saveContactFetchTime(System.currentTimeMillis())
             userDao.insertUser(*it.toTypedArray())
-               },
-//        shouldFetch = { false }
+        },
+        shouldFetch = {
+            (userDataSource.getContactFetchTime() < (System.currentTimeMillis() - 5 * 60 * 1000))
+        }
     )
 
-    fun deleteUserById(userId: String) =
-        boundFetch { userApiService.deleteUserById(userId, token()) }
-
     suspend fun getUserByIdLocal(id: String?): User? {
-        val user = userDao.getUser(id)
-        return user
+        return userDao.getUser(id)
     }
 
     fun getAllLocalUsers() = userDao.getAllUser()
 
 
     private suspend fun token(): String {
-        return userDataSource.getTokenFirst()
+        return userDataSource.getToken()
     }
 
 }

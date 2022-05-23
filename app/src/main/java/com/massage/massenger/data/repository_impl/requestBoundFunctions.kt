@@ -1,6 +1,6 @@
 package com.massage.massenger.data.repository_impl
 
-import com.massage.massenger.common.Resource
+import com.massage.massenger.common.NetworkState
 import io.ktor.client.features.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
@@ -15,7 +15,7 @@ fun <T> boundFetch(
     fetch: suspend () -> T
 ) = flow {
     // indication for loading until the fetch request process
-    emit(Resource.Loading())
+    emit(NetworkState.Loading())
     emit(tryFetchRequest(fetch = fetch))
 }
 
@@ -25,8 +25,8 @@ fun <T> boundFetch(
 fun <T> boundFetchSave(
     fetch: suspend () -> T,
     save: suspend (T) -> Unit
-) = flow<Resource<T>> {
-    emit(Resource.Loading())
+) = flow<NetworkState<T>> {
+    emit(NetworkState.Loading())
 
     emit(
         tryFetchRequest(
@@ -44,18 +44,16 @@ fun <T> boundCacheFetchSave(
     query: suspend () -> T?,
     fetch: suspend () -> T,
     saveFetched: suspend (T) -> Unit,
-    shouldFetch: (T?) -> Boolean = { true },
-): Flow<Resource<T>> = flow {
+    shouldFetch: suspend (T?) -> Boolean = { true },
+): Flow<NetworkState<T>> = flow {
 
     val queryData = query()
-    emit(Resource.Loading(data = queryData))
+    emit(NetworkState.Loading(data = queryData))
 
     emit(
-        when {
-            shouldFetch(queryData) -> tryFetchRequest(fetch = fetch, useFetched = saveFetched)
-            queryData != null -> Resource.Success(queryData)
-            else -> Resource.Error("Unknown Error")
-        }
+        if (shouldFetch(queryData)) tryFetchRequest(fetch = fetch, useFetched = saveFetched)
+        else if (queryData != null) NetworkState.Success(queryData)
+        else NetworkState.Error("Unknown Error")
     )
 }
 
@@ -65,7 +63,7 @@ fun <T> boundCacheFetchSave(
 suspend fun <T> tryFetchRequest(
     fetch: suspend () -> T,
     useFetched: suspend (T) -> Unit = {}
-): Resource<T> {
+): NetworkState<T> {
     return try {
 
         // execute fetch block / call api
@@ -73,20 +71,22 @@ suspend fun <T> tryFetchRequest(
         // use the raw data if not any error happen
         useFetched(data)
         // return the data as success
-        Resource.Success(data)
+        NetworkState.Success(data)
 
     } catch (e: ResponseException) { // if any exception occurred during fetching data
         // if exception occurred because you are not authorised
-        if (e.response.status == HttpStatusCode.Unauthorized){
+        if (e.response.status == HttpStatusCode.Unauthorized) {
             // return the error message with error wrapper object
-            Resource.Error(
+            NetworkState.Error(
                 e.response.readText(Charset.defaultCharset()),
                 authenticationNeeded = true
             )
         } else { // other exceptions
-            Resource.Error(
+            NetworkState.Error(
                 e.response.readText(Charset.defaultCharset())
             )
         }
+    } catch (e: Exception) {
+        NetworkState.Error(e.localizedMessage?:"Unknown Error")
     }
 }

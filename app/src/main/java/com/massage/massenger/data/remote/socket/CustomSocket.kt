@@ -40,7 +40,7 @@ class CustomSocket @Inject constructor(
     private fun start() {
         println("Ktor Socket")
         scope.launch {
-            val token = userDataSource.getTokenFirst()
+            val token = userDataSource.getToken()
         }
     }
 

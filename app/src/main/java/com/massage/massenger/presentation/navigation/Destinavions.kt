@@ -17,12 +17,13 @@ import com.massage.massenger.util.extensions.fromJson
 import com.massage.massenger.util.extensions.toJson
 
 
-object AuthNavigation: Navigation(route = "auth_navigation", startDestination = StartScreen.route)
+object AuthNavigation: Navigation(route = "auth_navigation", startDestination = SignInScreen.route)
 object TabNavigation: Navigation (route = "tab_navigation", startDestination = ChatListScreen.route)
 object SingleChatNavigation: Navigation(route = "single_chat_navigation", startDestination = SingleChatScreen.route)
 
+object OnBoardingScreen:Destination("on_boarding_screen")
 object StartScreen : Destination("start_screen")
-object LoginScreen : Destination("login_screen")
+object SignInScreen : Destination("login_screen")
 object SignupScreen : Destination("signup_screen")
 
 object SingleChatScreen : Destination("single_chat_screen") {

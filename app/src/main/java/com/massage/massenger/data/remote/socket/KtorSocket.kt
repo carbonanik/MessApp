@@ -16,7 +16,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.consumeEach
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -41,7 +40,7 @@ class KtorSocket @Inject constructor(
     private fun start() {
         println("Ktor Socket")
         scope.launch {
-            val token = userDataSource.getTokenFirst()
+            val token = userDataSource.getToken()
             val client = createWSClient(token)
             openSocketSession(client)
         }

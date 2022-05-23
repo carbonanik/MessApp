@@ -5,15 +5,15 @@ import android.graphics.Bitmap
 import android.graphics.Bitmap.CompressFormat
 import android.graphics.BitmapFactory
 import com.jakewharton.disklrucache.DiskLruCache
-import com.massage.massenger.util.extensions.md5
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.ByteArrayOutputStream
+import java.util.*
 
 @Suppress("BlockingMethodInNonBlockingContext", "DEPRECATION")
 class DiskImageCacheImpl constructor(
     context: Context
-): ImageCache {
+) : ImageCache {
 
     private var versionCode = context.packageManager
         .getPackageInfo(context.packageName, 0).versionCode
@@ -25,29 +25,34 @@ class DiskImageCacheImpl constructor(
             1 * 1024 * 1024L
         )
 
-    override suspend fun addImage(url: String, bitmap: Bitmap) = withContext(Dispatchers.IO){
+    override suspend fun addImage(bitmap: Bitmap): String? =
+        withContext(Dispatchers.IO) {
 
-        val stream = ByteArrayOutputStream()
-        bitmap.compress(CompressFormat.PNG, 100, stream)
-        try {
-            diskLruCache.edit(url.md5()).run {
+            val stream = ByteArrayOutputStream()
+            bitmap.compress(CompressFormat.PNG, 100, stream)
+            val id = UUID.randomUUID().toString()
+            try {
+                diskLruCache.edit(id).run {
 
-                val out = newOutputStream(0)
-                out.write(stream.toByteArray())
-                out.flush()
+                    val out = newOutputStream(0)
+                    out.write(stream.toByteArray())
+                    out.flush()
 
-                commit()
+                    commit()
+                }
+                id
+            } catch (e: Exception) {
+                e.printStackTrace()
+                null
             }
-        } catch (e: Exception){
-            e.printStackTrace()
         }
-    }
 
-    override suspend fun getImage(url: String): Bitmap? = withContext(Dispatchers.IO){
+    override suspend fun getImage(cacheId: String): Bitmap? = withContext(Dispatchers.IO) {
         var bmp: Bitmap? = null
 
         try {
-            val snapshot: DiskLruCache.Snapshot = diskLruCache.get(url.md5()) ?: return@withContext null
+            val snapshot: DiskLruCache.Snapshot =
+                diskLruCache.get(cacheId) ?: return@withContext null
             val inputStream = snapshot.getInputStream(0) ?: return@withContext null
 
             bmp = BitmapFactory.decodeStream(inputStream)
@@ -56,11 +61,15 @@ class DiskImageCacheImpl constructor(
         } catch (e: java.lang.Exception) {
             e.printStackTrace()
         }
-        return@withContext bmp
+        bmp
     }
 
-    override suspend fun deleteImage(url: String) {
-        TODO("Not yet implemented")
+    override suspend fun deleteImage(cacheId: String) {
+        try {
+            diskLruCache.delete()
+        } catch (e: java.lang.Exception) {
+
+        }
     }
 
     override suspend fun clearCache() {

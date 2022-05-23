@@ -27,7 +27,6 @@ fun OutlineTextFieldWithErrorView(
     placeholder: @Composable (() -> Unit)? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
-    isError: Boolean = false,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
@@ -36,12 +35,12 @@ fun OutlineTextFieldWithErrorView(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     shape: Shape = MaterialTheme.shapes.small,
     colors: TextFieldColors = TextFieldDefaults.outlinedTextFieldColors(),
-    errorMsg: String = ""
+    errorMsg: String? = null
 ) {
 
     Column(
         modifier = Modifier
-            .padding(bottom = if (isError) 0.dp else 10.dp)
+//            .padding(bottom = if (isError) 0.dp else 10.dp)
     ) {
         OutlinedTextField(
             enabled = enabled,
@@ -55,7 +54,7 @@ fun OutlineTextFieldWithErrorView(
             placeholder = placeholder,
             leadingIcon = leadingIcon,
             trailingIcon = trailingIcon,
-            isError = isError,
+            isError = !errorMsg.isNullOrEmpty(),
             visualTransformation = visualTransformation,
             keyboardOptions = keyboardOptions,
             keyboardActions = keyboardActions,
@@ -65,7 +64,7 @@ fun OutlineTextFieldWithErrorView(
             colors = colors
         )
 
-        if (isError) {
+        if (!errorMsg.isNullOrEmpty()) {
             Text(
                 text = errorMsg,
                 color = MaterialTheme.colors.error,

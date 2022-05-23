@@ -7,9 +7,11 @@ import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.emptyPreferences
 import androidx.datastore.preferences.preferencesDataStoreFile
+import com.massage.massenger.data.local.pref.AppStartingStateDataSource
 import com.massage.massenger.data.local.pref.PreferencesKeys
 import com.massage.massenger.data.local.pref.UserDataSource
-import com.massage.massenger.data.local.pref.UserDataSourceImpl
+import com.massage.massenger.data.local.pref.implementation.AppStartingStateDataSourceImpl
+import com.massage.massenger.data.local.pref.implementation.UserDataSourceImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -36,5 +38,11 @@ object DataStoreModule {
     @Provides
     fun provideUserDataSource(dataStore: DataStore<Preferences>): UserDataSource{
         return UserDataSourceImpl(dataStore)
+    }
+
+    @Singleton
+    @Provides
+    fun provideAppStateDataSource(dataStore: DataStore<Preferences>): AppStartingStateDataSource {
+        return AppStartingStateDataSourceImpl(dataStore)
     }
 }

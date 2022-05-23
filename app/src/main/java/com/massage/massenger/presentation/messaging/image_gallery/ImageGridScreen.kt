@@ -1,7 +1,6 @@
 package com.massage.massenger.presentation.messaging.image_gallery
 
 import android.Manifest
-import android.net.Uri
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -9,9 +8,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -24,10 +23,10 @@ import androidx.navigation.NavHostController
 import coil.compose.rememberImagePainter
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberPermissionState
+import com.massage.massenger.R
 import com.massage.massenger.model.SharedStoragePhoto
 import com.massage.massenger.presentation.messaging.single_chat.SingleChatViewModel
 import com.massage.massenger.util.isPermanentlyDenied
-import com.massage.massenger.R
 
 
 @OptIn(ExperimentalPermissionsApi::class)
@@ -91,7 +90,7 @@ fun ImageGridContent(
 ) {
 
     Column {
-        LazyVerticalGrid(cells = GridCells.Fixed(4)) {
+        LazyVerticalGrid(columns = GridCells.Fixed(4)) {
 
             items(items = photos) { photo ->
 

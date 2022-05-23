@@ -23,16 +23,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.google.accompanist.insets.ExperimentalAnimatedInsets
 import com.massage.massenger.model.Chat
 import com.massage.massenger.presentation.messaging.single_chat.component.StatusIndicator
 import com.massage.massenger.presentation.navigation.CreateGroupScreen
 import com.massage.massenger.presentation.navigation.SingleChatScreen
-import com.massage.massenger.presentation.ui.MessagingViewModel
+import com.massage.massenger.presentation.ui.TabScreensViewModel
 import com.massage.massenger.util.extensions.toTime
 
 @Composable
-fun ChatListScreen(viewModel: MessagingViewModel, chatNavController: NavController) {
+fun ChatListScreen(viewModel: TabScreensViewModel, chatNavController: NavController) {
     val chats by viewModel.allChat.collectAsState(initial = emptyList())
 
     ChatListScreenContent(chats = chats,
@@ -45,7 +44,6 @@ fun ChatListScreen(viewModel: MessagingViewModel, chatNavController: NavControll
     )
 }
 
-@OptIn(ExperimentalAnimatedInsets::class)
 @Composable
 fun ChatListScreenContent(
     chats: List<Chat>,
@@ -84,7 +82,11 @@ fun ChatListScreenContent(
         }
     ) {
         if (chats.isEmpty()) {
-            Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            Box(
+                Modifier
+                    .fillMaxSize()
+                    .padding(it), contentAlignment = Alignment.Center
+            ) {
                 Image(
                     imageVector = Icons.Default.HourglassEmpty,
                     contentDescription = "Empty Chat List",

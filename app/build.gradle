@@ -5,7 +5,7 @@ plugins {
     id 'dagger.hilt.android.plugin'
     id 'org.jetbrains.kotlin.plugin.serialization'
     id 'com.google.gms.google-services'
-
+    id 'com.google.devtools.ksp' version '1.6.10-1.0.2'
     id "kotlin-parcelize"
 }
 
@@ -53,6 +53,21 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+
+    ksp {
+        arg("compose-destinations.generateNavGraphs", "false")
+    }
+}
+
+kotlin {
+    sourceSets {
+        debug {
+            kotlin.srcDir("build/generated/ksp/debug/kotlin")
+        }
+        release {
+            kotlin.srcDir("build/generated/ksp/release/kotlin")
+        }
+    }
 }
 
 dependencies {
@@ -84,10 +99,10 @@ dependencies {
 
     // Hilt
     // Dependency Injection
-    implementation("com.google.dagger:hilt-android:$hilt_version")
-    kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
-    implementation "androidx.hilt:hilt-navigation-compose:1.0.0"
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
     // for using hiltViewModel() function
+    implementation "androidx.hilt:hilt-navigation-compose:1.0.0"
 
     //kotlin serialization
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.0"
@@ -131,10 +146,10 @@ dependencies {
     implementation "io.ktor:ktor-client-logging:$ktor_version"
 
     // phone number verify
-    implementation 'com.googlecode.libphonenumber:libphonenumber:7.6.1'
+    implementation 'com.googlecode.libphonenumber:libphonenumber:8.12.46'
 
     // splash screen
-    implementation 'androidx.core:core-splashscreen:1.0.0-beta01'
+    implementation 'androidx.core:core-splashscreen:1.0.0-rc01'
 
     // compose permission handler
     implementation "com.google.accompanist:accompanist-permissions:0.22.1-rc"
@@ -152,12 +167,26 @@ dependencies {
     testImplementation "androidx.room:room-testing:$room_version"
 
     // exo player
-    implementation 'com.google.android.exoplayer:exoplayer:2.16.1'
+    implementation 'com.google.android.exoplayer:exoplayer:2.17.1'
 
     // Disk Cache
     implementation 'com.jakewharton:disklrucache:2.0.2'
-//    implementation 'com.epam.coroutinecache:coroutinecache:0.9.6'
+    //implementation 'com.epam.coroutinecache:coroutinecache:0.9.6'
 
     // Compose Constraint Layout
     implementation "androidx.constraintlayout:constraintlayout-compose:1.0.0"
+
+    // Compose Pager Layout
+    def pager_version = "0.24.9-beta"
+    implementation "com.google.accompanist:accompanist-pager:$pager_version"
+    // If using indicators, also depend on
+    implementation "com.google.accompanist:accompanist-pager-indicators:$pager_version"
+
+    // easy compose navigation Destination
+    implementation 'io.github.raamcosta.compose-destinations:core:1.5.0-beta'
+    ksp 'io.github.raamcosta.compose-destinations:ksp:1.5.0-beta'
+
+    // Cache
+    implementation 'com.github.kittinunf.fuse:fuse-android:1.3.0'
 }
+

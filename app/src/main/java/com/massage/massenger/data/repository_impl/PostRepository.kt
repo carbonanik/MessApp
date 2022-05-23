@@ -1,6 +1,6 @@
 package com.massage.massenger.data.repository_impl
 
-import com.massage.massenger.common.Resource
+import com.massage.massenger.common.NetworkState
 import com.massage.massenger.data.local.pref.UserDataSource
 import com.massage.massenger.data.local.room.dao.PostDao
 import com.massage.massenger.data.remote.api_service.post.PostApiService
@@ -17,7 +17,7 @@ class PostRepository @Inject constructor(
     private val userDataSource: UserDataSource,
     private val postDao: PostDao
 ) {
-    fun createPost(createPostRequest: CreatePostRequest): Flow<Resource<Post>> =
+    fun createPost(createPostRequest: CreatePostRequest): Flow<NetworkState<Post>> =
         boundFetchSave(fetch = { postApiService.create(createPostRequest, token()) },
             save = { postDao.insertPost(it) })
 
@@ -31,7 +31,7 @@ class PostRepository @Inject constructor(
             fetch = { postApiService.getOfUser(userId, token()) },
             saveFetched = { postDao.insertPost(*it.toTypedArray()) })
 
-    fun getAllUntil(time: Long): Flow<Resource<List<Post>>> =
+    fun getAllUntil(time: Long): Flow<NetworkState<List<Post>>> =
         boundFetch { postApiService.getAllUntil(time, token()) }
 
 
@@ -39,5 +39,5 @@ class PostRepository @Inject constructor(
         boundFetch { postApiService.getAllBetween(oldTime, newTime, token()) }
 
 
-    private suspend fun token() = userDataSource.getTokenFirst()
+    private suspend fun token() = userDataSource.getToken()
 }

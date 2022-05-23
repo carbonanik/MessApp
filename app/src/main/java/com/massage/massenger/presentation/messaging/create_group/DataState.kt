@@ -1,6 +1,6 @@
 package com.massage.massenger.presentation.messaging.create_group
 
-import com.massage.massenger.common.Resource
+import com.massage.massenger.common.NetworkState
 
 data class DataState<T>(
     val isLoading: Boolean = false,
@@ -8,12 +8,12 @@ data class DataState<T>(
     val error: String? = null
 )
 
-fun <T> Resource<T>.toDataState() =
+fun <T> NetworkState<T>.toDataState() =
     when (this) {
-        is Resource.Error ->
+        is NetworkState.Error ->
             DataState(data = data, error = errorMessage)
-        is Resource.Loading ->
+        is NetworkState.Loading ->
             DataState(isLoading = true, data = data)
-        is Resource.Success ->
+        is NetworkState.Success ->
             DataState(data = data)
     }

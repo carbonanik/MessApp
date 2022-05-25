@@ -12,10 +12,10 @@ fun NavGraphBuilder.authNavigation(
 ) {
     navigation(AuthNavigation) {
 
-        composable(SignInScreen) {
+        composable(SignInDestination) {
             SignInScreen(navController, hiltViewModel())
         }
-        composable(SignupScreen) {
+        composable(SignupDestination) {
             SignUpScreen(navController, hiltViewModel())
         }
     }

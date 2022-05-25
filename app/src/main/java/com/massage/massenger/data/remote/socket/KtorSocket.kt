@@ -1,7 +1,7 @@
 package com.massage.massenger.data.remote.socket
 
 import com.massage.massenger.data.local.pref.UserDataSource
-import com.massage.massenger.data.remote.socket.dto.SocketMessage
+import com.massage.massenger.data.remote.socket.events.SocketEvent
 import com.massage.massenger.util.extensions.fromJson
 import com.massage.massenger.util.extensions.toJson
 import io.ktor.client.*
@@ -30,8 +30,8 @@ class KtorSocket @Inject constructor(
 ) {
     private val scope = CoroutineScope(Dispatchers.IO)
 
-    val incomingMessage = MutableSharedFlow<SocketMessage>()
-    val outgoingMessage = MutableSharedFlow<SocketMessage>()
+    val incomingMessage = MutableSharedFlow<SocketEvent>()
+    val outgoingMessage = MutableSharedFlow<SocketEvent>()
 
     init {
         start()
@@ -83,7 +83,7 @@ class KtorSocket @Inject constructor(
     private suspend fun DefaultClientWebSocketSession.receiveIncoming() {
         incoming.consumeEach { frame ->
             (frame as? Frame.Text)?.readText()
-                ?.fromJson<SocketMessage>()
+                ?.fromJson<SocketEvent>()
                 ?.let { receive(it) }
         }
     }
@@ -94,7 +94,7 @@ class KtorSocket @Inject constructor(
         }
     }
 
-    private suspend fun receive(m: SocketMessage){
+    private suspend fun receive(m: SocketEvent){
         incomingMessage.emit(m)
     }
 }

@@ -77,7 +77,7 @@ fun ImageGridScreen(
     }
 
     ImageGridContent(photos = photos, onImageClick = {photo ->
-        viewModel.submitPhotoForSend(photo)
+//        viewModel.submitPhotoForSend(photo)
         navController.navigateUp()
     })
 }

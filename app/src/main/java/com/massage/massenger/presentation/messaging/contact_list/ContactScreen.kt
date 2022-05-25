@@ -3,6 +3,7 @@ package com.massage.massenger.presentation.messaging.contact_list
 import android.Manifest
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -22,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -32,8 +34,8 @@ import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberPermissionState
 import com.massage.massenger.model.User
 import com.massage.massenger.presentation.messaging.chat_list.NameBox
-import com.massage.massenger.presentation.navigation.SignInScreen
-import com.massage.massenger.presentation.navigation.SingleChatScreen
+import com.massage.massenger.presentation.navigation.SignInDestination
+import com.massage.massenger.presentation.navigation.SingleChatDestination
 import com.massage.massenger.presentation.navigation.popNavigate
 import com.massage.massenger.util.isPermanentlyDenied
 
@@ -69,42 +71,48 @@ fun ContactScreen(
     })
 
     if (viewModel.navigateBackToLoginScreen) {
-        navController.popNavigate(SignInScreen())
+        navController.popNavigate(SignInDestination())
         viewModel.navigateBackToLoginScreen = false
     }
 
 
 
 
-    LaunchedEffect(key1 = permissionState) {
+    LaunchedEffect(key1 = permissionState.hasPermission) {
+
+        println("changed permission state")
 
         when {
             permissionState.hasPermission -> {
                 viewModel.loadData()
-                viewModel.updatePermissionText(null)
+                viewModel.updatePermissionText(ContactPermission.ACCEPTED)
             }
             permissionState.shouldShowRationale -> {
-                viewModel.updatePermissionText("Contact Permission Needed")
+                viewModel.updatePermissionText(ContactPermission.NOT_ACCEPTED)
             }
             permissionState.isPermanentlyDenied() -> {
-                viewModel.updatePermissionText(
-                    "Contact Permission was permanently denied. You can enable it " +
-                            "from the app setting"
-                )
+                viewModel.updatePermissionText(ContactPermission.PERMANENTLY_DENIED)
             }
         }
     }
 
-    ContactScreenContent(viewModel.dataState) { user ->
-        navController.navigate(SingleChatScreen(user = user))
-    }
+    ContactScreenContent(
+        viewModel.dataState,
+        onContactClick = { user ->
+            navController.navigate(SingleChatDestination(user = user))
+        },
+        onAllowPermissionClick = {
+            permissionState.launchPermissionRequest()
+        }
+    )
 }
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ContactScreenContent(
     dataState: ContactScreenDataState,
-    onContactClick: (user: User) -> Unit
+    onContactClick: (user: User) -> Unit,
+    onAllowPermissionClick: () -> Unit
 ) {
 
     Column {
@@ -117,14 +125,16 @@ fun ContactScreenContent(
             StatusBar(statusText = dataState.errorMessage ?: "", icon = Icons.Default.Error)
         }
 
-        AnimatedVisibility(visible = dataState.permissionText != null) {
-            AskPermission()
+        AnimatedVisibility(visible = dataState.contactPermission != ContactPermission.ACCEPTED) {
+            AskPermission(dataState.contactPermission, onAllowClick = onAllowPermissionClick)
         }
 
         LazyColumn(content = {
             items(dataState.contacts) { user -> // todo
                 ContactView(
-                    Modifier.animateItemPlacement(),
+                    Modifier.animateItemPlacement(
+                        animationSpec = tween(durationMillis = 600)
+                    ),
                     connection = user, onContactClick = onContactClick
                 )
             }
@@ -201,14 +211,19 @@ fun StatusBar(
             )
             else Icon(icon, null)
             Spacer(modifier = Modifier.width(8.dp))
-            Text(text = statusText, fontSize = 10.sp, maxLines = 1, overflow = TextOverflow.Ellipsis)
+            Text(
+                text = statusText,
+                fontSize = 10.sp,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
         }
     }
 }
 
 
 @Composable
-fun AskPermission() {
+fun AskPermission(contactPermission: ContactPermission, onAllowClick: () -> Unit) {
     Row(
         Modifier
             .fillMaxWidth()
@@ -228,15 +243,20 @@ fun AskPermission() {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = "Allow Access!",
+                    text = contactPermission.value ?: "",
                     fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(bottom = 16.dp)
+                    modifier = Modifier.padding(bottom = 16.dp),
+                    textAlign = TextAlign.Center
                 )
-                Button(colors = ButtonDefaults.buttonColors(
-                    backgroundColor = MaterialTheme.colors.primaryVariant
-                ),
-                    onClick = { /*TODO*/ }) {
-                    Text(text = "Allow")
+                if (contactPermission == ContactPermission.NOT_ACCEPTED) {
+                    Button(
+                        colors = ButtonDefaults.buttonColors(
+                            backgroundColor = MaterialTheme.colors.primaryVariant
+                        ),
+                        onClick = onAllowClick
+                    ) {
+                        Text(text = "Allow")
+                    }
                 }
             }
         }

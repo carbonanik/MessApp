@@ -2,7 +2,6 @@
 
 package com.massage.massenger.presentation.messaging.on_boarding
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -26,15 +25,13 @@ import com.google.accompanist.pager.HorizontalPagerIndicator
 import com.google.accompanist.pager.rememberPagerState
 import com.massage.massenger.data.local.pref.AppStartingState
 import com.massage.massenger.presentation.navigation.AuthNavigation
-import com.massage.massenger.presentation.navigation.OnBoardingScreen
+import com.massage.massenger.presentation.navigation.OnBoardingDestination
 import com.massage.massenger.presentation.ui.theme.MessengerTheme
 import com.massage.massenger.presentation.ui.theme.grayBlue1
 import com.massage.massenger.presentation.ui.theme.pink500
-import com.ramcosta.composedestinations.annotation.Destination
 import kotlinx.coroutines.launch
 
 
-@Destination(start = true)
 @Composable
 fun OnBoardingScreen(
     navController: NavController = rememberNavController(),
@@ -116,12 +113,13 @@ fun PagerScreen(onBoardingPage: OnBoardingPage) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-        Image(
+        Icon(
             modifier = Modifier
                 .fillMaxWidth(.5f)
                 .fillMaxHeight(.7f),
             painter = painterResource(id = onBoardingPage.img),
-            contentDescription = null
+            contentDescription = null,
+            tint = MaterialTheme.colors.primary
         )
         Text(
             modifier = Modifier.fillMaxWidth(),
@@ -148,7 +146,7 @@ fun PagerScreen(onBoardingPage: OnBoardingPage) {
 fun PPPrev() {
     MessengerTheme {
         Surface {
-            OnBoardingScreen()
+            OnBoardingDestination()
         }
     }
 }

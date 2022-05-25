@@ -15,7 +15,7 @@ import androidx.core.app.TaskStackBuilder
 import com.massage.massenger.R
 import com.massage.massenger.model.Chat
 import com.massage.massenger.model.ChatMessage
-import com.massage.massenger.presentation.navigation.SingleChatScreen
+import com.massage.massenger.presentation.navigation.SingleChatDestination
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
@@ -60,7 +60,7 @@ class MyNotificationManager @Inject constructor(@ApplicationContext private val 
     private fun buildPendingIntent(chat: Chat): PendingIntent? {
         val openChatIntent = Intent(
             Intent.ACTION_VIEW,
-            SingleChatScreen.getDeepLink(chat)
+            SingleChatDestination.getDeepLink(chat)
 //            "app://com.massage.massenger/test".toUri()
         )
 

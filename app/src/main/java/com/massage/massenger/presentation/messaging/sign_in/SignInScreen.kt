@@ -15,7 +15,7 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.navigation.NavController
 import com.massage.massenger.presentation.component.LoadingAnimation
 import com.massage.massenger.presentation.component.MessageDialog
-import com.massage.massenger.presentation.navigation.SignupScreen
+import com.massage.massenger.presentation.navigation.SignupDestination
 import com.massage.massenger.presentation.navigation.TabNavigation
 import com.massage.massenger.presentation.navigation.popNavigate
 import kotlinx.coroutines.launch
@@ -33,6 +33,7 @@ fun SignInScreen(
     val modalBottomSheetState =
         rememberModalBottomSheetState(
             initialValue = ModalBottomSheetValue.Hidden,
+            skipHalfExpanded = true
         )
     val scope = rememberCoroutineScope()
     val fm = LocalFocusManager.current
@@ -54,7 +55,7 @@ fun SignInScreen(
         signInState = viewModel.signInDataState,
         onEvent = { viewModel.onEvent(it) },
         onForgetPasswordClick = { },
-        onSignUpTextClick = { navController.popNavigate(SignupScreen()) },
+        onSignUpTextClick = { navController.popNavigate(SignupDestination()) },
         countries = viewModel.filteredCountries,
         filterCountryCode = {
             viewModel.filterCountryCode(it)

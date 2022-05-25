@@ -16,7 +16,7 @@ import androidx.navigation.NavController
 import com.massage.massenger.presentation.component.LoadingAnimation
 import com.massage.massenger.presentation.component.MessageDialog
 import com.massage.massenger.presentation.messaging.sign_in.BottomSheetEvent
-import com.massage.massenger.presentation.navigation.SignInScreen
+import com.massage.massenger.presentation.navigation.SignInDestination
 import com.massage.massenger.presentation.navigation.TabNavigation
 import com.massage.massenger.presentation.navigation.popNavigate
 import kotlinx.coroutines.launch
@@ -54,7 +54,7 @@ fun SignUpScreen(
     SignUpForm(
         signUpState = viewModel.signUpDataState,
         onEvent = { viewModel.onEvent(it) },
-        onSignInTextClick = { navController.popNavigate(SignInScreen()) },
+        onSignInTextClick = { navController.popNavigate(SignInDestination()) },
         countries = viewModel.filteredCountries,
         filterCountryCode = {
             viewModel.filterCountryCode(it)

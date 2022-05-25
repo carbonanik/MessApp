@@ -31,6 +31,7 @@ fun CountryBottomView(
     Box(
         modifier = Modifier
             .fillMaxWidth()
+            .fillMaxHeight()
             .defaultMinSize(minHeight = 1.dp)
     ) {
         Column {

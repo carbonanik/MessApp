@@ -17,21 +17,22 @@ import com.massage.massenger.util.extensions.fromJson
 import com.massage.massenger.util.extensions.toJson
 
 
-object AuthNavigation: Navigation(route = "auth_navigation", startDestination = SignInScreen.route)
-object TabNavigation: Navigation (route = "tab_navigation", startDestination = ChatListScreen.route)
-object SingleChatNavigation: Navigation(route = "single_chat_navigation", startDestination = SingleChatScreen.route)
+object AuthNavigation : Navigation(route = "auth_navigation", startDestination = SignInDestination.route)
+object TabNavigation : Navigation(route = "tab_navigation", startDestination = ChatListDestination.route)
+object SingleChatNavigation :
+    Navigation(route = "single_chat_navigation", startDestination = SingleChatDestination.route)
 
-object OnBoardingScreen:Destination("on_boarding_screen")
-object StartScreen : Destination("start_screen")
-object SignInScreen : Destination("login_screen")
-object SignupScreen : Destination("signup_screen")
+object OnBoardingDestination : Destination("on_boarding_screen")
+object SignInDestination : Destination("login_screen")
+object SignupDestination : Destination("signup_screen")
 
-object SingleChatScreen : Destination("single_chat_screen") {
+object SingleChatDestination : Destination("single_chat_screen") {
 
     private const val CHAT = "chat"
     private const val USER = "user"
 
-    override val route = "${super.route}?$CHAT={$CHAT}&$USER={$USER}"  //"single_chat_screen?chat={chat}&user={user}"
+    override val route =
+        "${super.route}?$CHAT={$CHAT}&$USER={$USER}"  //"single_chat_screen?chat={chat}&user={user}"
 
     override val arguments = listOf(
         navArgument(CHAT) {
@@ -42,7 +43,9 @@ object SingleChatScreen : Destination("single_chat_screen") {
         }
     )
 
-    override val deepLinks = listOf(navDeepLink { uriPattern = "$uri/$CHAT={$CHAT}" }) //"app://com.massage.massenger/chat={chat}"
+    override val deepLinks = listOf(navDeepLink {
+        uriPattern = "$uri/$CHAT={$CHAT}"
+    }) //"app://com.massage.massenger/chat={chat}"
 
     operator fun invoke(chat: Chat) =
         "${super.route}?$CHAT=${chat.toJson()}"
@@ -62,8 +65,8 @@ object SingleChatScreen : Destination("single_chat_screen") {
         arguments?.getString(USER)?.fromJson<User>()
 }
 
-object ImageGridScreen : Destination("select_photo_screen")
-object ImageViewScreen : Destination("image_view_screen") {
+object ImageGridDestination : Destination("select_photo_screen")
+object ImageViewDestination : Destination("image_view_screen") {
 
     private const val PHOTO_URL = "photo_uri"
     private const val PHOTO_NAME = "photo_name"
@@ -93,15 +96,15 @@ object ImageViewScreen : Destination("image_view_screen") {
         arguments?.getString(PHOTO_NAME)
 }
 
-object CreateGroupScreen : Destination("create_group")
+object CreateGroupDestination : Destination("create_group")
 
 // Home Tab Destination
-object ChatListScreen : TabDestination("chat_list_screen", "Chat", Icons.Default.Chat)
-object ContactListScreen : TabDestination("contact_list_screen", "Contact", Icons.Default.Contacts)
-object NewsFeedScreen : TabDestination("news_feed_screen", "Feed", Icons.Default.Feed)
+object ChatListDestination : TabDestination("chat_list_screen", "Chat", Icons.Default.Chat)
+object ContactListDestination : TabDestination("contact_list_screen", "Contact", Icons.Default.Contacts)
+object NewsFeedDestination : TabDestination("news_feed_screen", "Feed", Icons.Default.Feed)
 
 val tabItems = listOf(
-    ChatListScreen,
-    ContactListScreen,
-    NewsFeedScreen
+    ChatListDestination,
+    ContactListDestination,
+    NewsFeedDestination
 )

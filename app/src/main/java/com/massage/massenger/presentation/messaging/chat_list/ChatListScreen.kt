@@ -25,21 +25,21 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.massage.massenger.model.Chat
 import com.massage.massenger.presentation.messaging.single_chat.component.StatusIndicator
-import com.massage.massenger.presentation.navigation.CreateGroupScreen
-import com.massage.massenger.presentation.navigation.SingleChatScreen
+import com.massage.massenger.presentation.navigation.CreateGroupDestination
+import com.massage.massenger.presentation.navigation.SingleChatDestination
 import com.massage.massenger.presentation.ui.TabScreensViewModel
 import com.massage.massenger.util.extensions.toTime
 
 @Composable
 fun ChatListScreen(viewModel: TabScreensViewModel, chatNavController: NavController) {
-    val chats by viewModel.allChat.collectAsState(initial = emptyList())
-
+    val chats by viewModel.chats.collectAsState(initial = emptyList())
+    println("Chat List item ${chats.getOrNull(0)?.name}")
     ChatListScreenContent(chats = chats,
         createGroup = {
-            chatNavController.navigate(CreateGroupScreen())
+            chatNavController.navigate(CreateGroupDestination())
         },
         onItemChatClick = { chat ->
-            chatNavController.navigate(SingleChatScreen(chat = chat))
+            chatNavController.navigate(SingleChatDestination(chat = chat))
         }
     )
 }
@@ -50,7 +50,6 @@ fun ChatListScreenContent(
     createGroup: () -> Unit,
     onItemChatClick: (chat: Chat) -> Unit
 ) {
-
     var showFab by remember { mutableStateOf(true) }
     val fabOffset by animateDpAsState(targetValue = if (showFab) 0.dp else 72.dp)
 
@@ -107,7 +106,6 @@ fun ChatListItem(
     chat: Chat,
     onItemChatClick: (chat: Chat) -> Unit
 ) {
-    println("Chat List item ${chat.name}")
     Surface {
         Column {
             Row(

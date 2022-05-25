@@ -2,7 +2,7 @@ package com.massage.massenger.data.remote.socket
 
 import com.massage.massenger.common.TextMessage
 import com.massage.massenger.data.local.pref.UserDataSource
-import com.massage.massenger.data.remote.socket.dto.SocketMessage
+import com.massage.massenger.data.remote.socket.events.SocketEvent
 import com.massage.massenger.util.extensions.fromJson
 import com.massage.massenger.util.extensions.toJson
 import io.ktor.client.*
@@ -65,25 +65,25 @@ class CustomSocket @Inject constructor(
         }
     }
 
-    suspend fun receiveIncoming(receive: (message: SocketMessage) -> Unit) {
+    suspend fun receiveIncoming(receive: (message: SocketEvent) -> Unit) {
         wsSession?.incoming?.consumeEach { frame ->
             (frame as? Frame.Text)?.readText()
-                ?.fromJson<SocketMessage>()
+                ?.fromJson<SocketEvent>()
                 ?.let { receive(it) }
         }
     }
 
-    fun incoming(): Flow<SocketMessage?>? {
+    fun incoming(): Flow<SocketEvent?>? {
         return wsSession?.incoming?.receiveAsFlow()
             ?.filter { it is Frame.Text }
-            ?.map { (it as Frame.Text).readText().fromJson<SocketMessage>() }
+            ?.map { (it as Frame.Text).readText().fromJson<SocketEvent>() }
     }
 
     fun incomingText(): Flow<TextMessage?>? {
         return incoming()?.filter { it is TextMessage }?.map { it as TextMessage }
     }
 
-    suspend fun sendOutgoing(message: SocketMessage) {
+    suspend fun sendOutgoing(message: SocketEvent) {
         wsSession?.send(message.toJson())
     }
 }

@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.massage.massenger.data.local.pref.AppStartingState
 import com.massage.massenger.data.repository.AppStartingStateDataRepository
 import com.massage.massenger.presentation.navigation.AuthNavigation
-import com.massage.massenger.presentation.navigation.OnBoardingScreen
+import com.massage.massenger.presentation.navigation.OnBoardingDestination
 import com.massage.massenger.presentation.navigation.TabNavigation
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
@@ -20,7 +20,7 @@ class MessagingActivityViewModel @Inject constructor(
     private val appStartingStateDataRepository: AppStartingStateDataRepository
 ) : ViewModel() {
     var isLoading = true
-    var startDestination by mutableStateOf(OnBoardingScreen())
+    var startDestination by mutableStateOf(OnBoardingDestination())
 
     init {
         getAppStartingState()
@@ -31,7 +31,7 @@ class MessagingActivityViewModel @Inject constructor(
             appStartingStateDataRepository.getAppState().collectLatest { state ->
                 startDestination = when (state) {
                     AppStartingState.FIRST_TIME -> {
-                        OnBoardingScreen()
+                        OnBoardingDestination()
                     }
                     AppStartingState.ON_BOARDING_COMPLETED -> {
                         AuthNavigation()

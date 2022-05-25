@@ -5,7 +5,7 @@ import com.massage.massenger.data.local.room.dao.ChatDao
 import com.massage.massenger.data.local.room.dao.MessageDao
 import com.massage.massenger.data.local.room.dao.UserDao
 import com.massage.massenger.data.remote.socket.KtorSocket
-import com.massage.massenger.data.remote.socket.dto.SocketMessage
+import com.massage.massenger.data.remote.socket.events.SocketEvent
 import com.massage.massenger.model.Chat
 import com.massage.massenger.model.ChatMessage
 import com.massage.massenger.service.NotificationData
@@ -43,7 +43,7 @@ class MessageRepository @Inject constructor(
         }
     }
 
-    fun sendMessage(message: SocketMessage) {
+    fun sendMessage(message: SocketEvent) {
         processOutgoingMessage(message)
         scope.launch { emitOutgoing(message) }
     }
@@ -57,7 +57,7 @@ class MessageRepository @Inject constructor(
 
     //////////////// private //////////////////
 
-    private fun processIncomingMessage(message: SocketMessage) {
+    private fun processIncomingMessage(message: SocketEvent) {
         messageCheck(message, text = {
             scope.launch { processIncomingTextMessage(it) }
             scope.launch { replyDeliveryStatus(it) }
@@ -66,7 +66,7 @@ class MessageRepository @Inject constructor(
         })
     }
 
-    private fun processOutgoingMessage(message: SocketMessage) {
+    private fun processOutgoingMessage(message: SocketEvent) {
         messageCheck(message, text = {
             scope.launch { processOutgoingTextMessage(it) }
         })
@@ -125,8 +125,8 @@ class MessageRepository @Inject constructor(
         messageDao.updateMessageStatus(status.messageId, status.status)
     }
 
-    private suspend fun emitOutgoing(socketMessage: SocketMessage) {
-        socket.outgoingMessage.emit(socketMessage)
+    private suspend fun emitOutgoing(socketEvent: SocketEvent) {
+        socket.outgoingMessage.emit(socketEvent)
     }
 
     private suspend fun replyDeliveryStatus(textMessage: TextMessage) {
@@ -135,7 +135,7 @@ class MessageRepository @Inject constructor(
     }
 
     private fun messageCheck(
-        message: SocketMessage,
+        message: SocketEvent,
         text: (message: TextMessage) -> Unit = {},
         status: (message: MessageStatusCarrier) -> Unit = {},
         wander: (message: WanderingStatus) -> Unit = {},

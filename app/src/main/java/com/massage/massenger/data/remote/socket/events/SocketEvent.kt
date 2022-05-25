@@ -1,4 +1,4 @@
-package com.massage.massenger.data.remote.socket.dto
+package com.massage.massenger.data.remote.socket.events
 
 import com.massage.massenger.model.Group
 import com.massage.massenger.model.User
@@ -16,7 +16,7 @@ import org.webrtc.SessionDescription
 
 
 @Serializable
-sealed class SocketMessage {
+sealed class SocketEvent {
 
     var sender: User? = null
     var receiver: User? = null
@@ -32,7 +32,7 @@ sealed class SocketMessage {
         val mediaType: AttachedMedia? = null,
         @Transient
         val status: MessageStatus = MessageStatus.RECEIVED
-    ) : SocketMessage()
+    ) : SocketEvent()
 
 
     @Serializable
@@ -41,18 +41,18 @@ sealed class SocketMessage {
         val messageId: String,
         val time: Long = System.currentTimeMillis(),
         val status: MessageStatus = MessageStatus.SENDING
-    ) : SocketMessage()
+    ) : SocketEvent()
 
 
     @Serializable
     @SerialName("WanderingStatus")
     data class WanderingStatus(
         val status: WanderingState = WanderingState.LEFT,
-    ) : SocketMessage()
+    ) : SocketEvent()
 
 
     @Serializable
-    sealed class RTCMessage : SocketMessage() {
+    sealed class RTCMessage : SocketEvent() {
 
         @Serializable
         @SerialName("RtcRequest")

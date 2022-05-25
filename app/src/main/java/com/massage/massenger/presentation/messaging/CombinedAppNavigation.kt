@@ -1,7 +1,6 @@
 package com.massage.massenger.presentation.messaging
 
-import androidx.compose.animation.*
-import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Scaffold
@@ -22,11 +21,16 @@ fun AppScaffold(startDestination: String) {
     val navController = rememberNavController()
     Scaffold(
         bottomBar = {
-            AnimatedVisibility(
-                shouldShowBottomBar(navController = navController),
-                enter = slideInVertically() + fadeIn(),
-                exit = slideOutVertically() + fadeOut(),
-            ) {
+//            AnimatedVisibility(
+//                shouldShowBottomBar(navController = navController),
+//                enter = slideInVertically(
+//                    initialOffsetY = { it / 2 }
+//                ) + fadeIn(),
+//                exit = slideOutVertically(
+//                    targetOffsetY = { it / 2 }
+//                ) + fadeOut(),
+//            ) {
+            if (shouldShowBottomBar(navController = navController)) {
                 BottomNavigationBar(
                     items = tabItems,
                     navController = navController,
@@ -35,25 +39,37 @@ fun AppScaffold(startDestination: String) {
                     }
                 )
             }
+//            }
         }
     ) { paddingValue ->
-        CombinedAppNavigation(navController, paddingValue, startDestination)
+//        val padding = if (shouldShowBottomBar(navController = navController)){
+//            paddingValue
+//        } else {
+//            PaddingValues()
+//        }
+        CombinedAppNavigation(
+            navController = navController,
+            startDestination = startDestination,
+            modifier = Modifier
+                .padding(paddingValue)
+                .animateContentSize()
+        )
     }
 }
 
 @Composable
 fun CombinedAppNavigation(
     navController: NavHostController,
-    paddingValues: PaddingValues,
-    startDestination: String
+    startDestination: String,
+    modifier: Modifier = Modifier
 ) {
     NavHost(
         navController = navController,
         startDestination = startDestination,
-        Modifier.padding(paddingValues)
+        modifier = modifier
     ) {
 
-        composable(OnBoardingScreen) {
+        composable(OnBoardingDestination) {
             OnBoardingScreen(
                 navController = navController,
                 viewModel = hiltViewModel()

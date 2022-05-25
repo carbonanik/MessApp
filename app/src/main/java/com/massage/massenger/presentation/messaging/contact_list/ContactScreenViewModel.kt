@@ -58,8 +58,8 @@ class ContactScreenViewModel @Inject constructor(
         }
     }
 
-    fun updatePermissionText(text: String?) {
-        dataState = dataState.copy(permissionText = text)
+    fun updatePermissionText(contactPermission: ContactPermission) {
+        dataState = dataState.copy(contactPermission = contactPermission)
     }
 
     private fun logout() {

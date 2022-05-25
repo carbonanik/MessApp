@@ -1,14 +1,14 @@
 package com.massage.massenger.common
 
-import com.massage.massenger.data.remote.socket.dto.SocketMessage
+import com.massage.massenger.data.remote.socket.events.SocketEvent
 
-typealias TextMessage          = SocketMessage.TextMessage
-typealias MessageStatusCarrier = SocketMessage.MessageStatusCarrier
-typealias WanderingStatus      = SocketMessage.WanderingStatus
+typealias TextMessage          = SocketEvent.TextMessage
+typealias MessageStatusCarrier = SocketEvent.MessageStatusCarrier
+typealias WanderingStatus      = SocketEvent.WanderingStatus
 
-typealias RTCMessage           = SocketMessage.RTCMessage
+typealias RTCMessage           = SocketEvent.RTCMessage
 
-typealias RtcRequest           = SocketMessage.RTCMessage.RtcRequest
-typealias SDPMessage           = SocketMessage.RTCMessage.SDPMessage
-typealias ICEMessage           = SocketMessage.RTCMessage.ICEMessage
-typealias PeerLeft             = SocketMessage.RTCMessage.PeerLeft
+typealias RtcRequest           = SocketEvent.RTCMessage.RtcRequest
+typealias SDPMessage           = SocketEvent.RTCMessage.SDPMessage
+typealias ICEMessage           = SocketEvent.RTCMessage.ICEMessage
+typealias PeerLeft             = SocketEvent.RTCMessage.PeerLeft

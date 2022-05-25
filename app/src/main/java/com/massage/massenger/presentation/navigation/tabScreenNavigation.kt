@@ -13,13 +13,13 @@ fun NavGraphBuilder.tabNavigation(
 ) {
     navigation(TabNavigation) {
 
-        composable(ChatListScreen) {
+        composable(ChatListDestination) {
             ChatListScreen(hiltViewModel(), navController)
         }
-        composable(ContactListScreen) {
+        composable(ContactListDestination) {
             ContactScreen(hiltViewModel(), navController)
         }
-        composable(NewsFeedScreen) {
+        composable(NewsFeedDestination) {
             VideosScreen()
         }
     }

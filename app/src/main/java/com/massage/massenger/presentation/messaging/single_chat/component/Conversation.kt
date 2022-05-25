@@ -1,5 +1,6 @@
 package com.massage.massenger.presentation.messaging.single_chat.component
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
@@ -19,6 +20,7 @@ import com.massage.massenger.model.ChatMessage
 import com.massage.massenger.model.User
 import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun MessageList(
     modifier: Modifier = Modifier,
@@ -66,7 +68,8 @@ fun MessageList(
                     firstOfDay = firstOfDay,
                     lastOfDay = lastOfDay,
                     onImageClick = onImageClick,
-                    listHeight = listHeight
+                    listHeight = listHeight,
+                    modifier = Modifier
                 )
 
                 if (firstOfDay) {

@@ -29,6 +29,15 @@ Compose.
 
 ## Screenshot
 
+Authentication
+
+![Sign Up](/screenshot/auth/sign_up_empty.png)
+![](/screenshot/auth/sign_up_focus_color.png)
+![Country Code](/screenshot/auth/country_code.png)
+
+
+Other sections
+
 ![Chat List](/screenshot/chat_list_small.png)
 ![Chatting](/screenshot/chatting_small.png)
 ![Incoming Call](/screenshot/incoming_call_smaill.png)

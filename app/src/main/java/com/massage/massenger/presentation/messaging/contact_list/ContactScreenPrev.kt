@@ -13,7 +13,8 @@ fun ContactScreenPrev() {
     MessengerTheme {
         ContactScreenContent(
             dataState = ContactScreenDataState(),
-            onContactClick = {}
+            onContactClick = {},
+            onAllowPermissionClick = {}
         )
     }
 }
@@ -25,7 +26,7 @@ fun PersonPreview() {
     MessengerTheme {
         Column {
             StatusBar(statusText = "Updating Contacts", loadingIndicator = true)
-            AskPermission()
+            AskPermission(ContactPermission.NOT_ACCEPTED){}
             ContactView(
                 connection = User(
                     id = "01",

@@ -21,14 +21,19 @@ class UserRepository @Inject constructor(
         query = { userDao.getAllUser().first() },
         fetch = {
             val numbers = contactDataSource.fetchContact()
-            userApiService.getUsersByPhones(numbers, token())
+            userApiService.getUsersByPhones(numbers, token()).sortedBy {
+                it.name
+            }
         },
         saveFetched = {
             userDataSource.saveContactFetchTime(System.currentTimeMillis())
             userDao.insertUser(*it.toTypedArray())
         },
         shouldFetch = {
-            (userDataSource.getContactFetchTime() < (System.currentTimeMillis() - 5 * 60 * 1000))
+            val expired =
+                (userDataSource.getContactFetchTime() < (System.currentTimeMillis() - 5 * 60 * 1000))
+            println("expired $expired")
+            expired
         }
     )
 

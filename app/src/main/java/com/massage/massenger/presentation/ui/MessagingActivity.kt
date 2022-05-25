@@ -7,9 +7,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.massage.massenger.presentation.navigation.NavGraphs
+import com.massage.massenger.presentation.messaging.AppScaffold
 import com.massage.massenger.presentation.ui.theme.MessengerTheme
-import com.ramcosta.composedestinations.DestinationsNavHost
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -33,8 +32,8 @@ class MessagingActivity : AppCompatActivity() {
 
         setContent {
             MessengerTheme {
-                DestinationsNavHost(navGraph = NavGraphs.root)
-//                AppScaffold(messagingActivityViewModel.startDestination)
+//                DestinationsNavHost(navGraph = NavGraphs.root)
+                AppScaffold(messagingActivityViewModel.startDestination)
             }
         }
     }

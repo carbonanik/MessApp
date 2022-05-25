@@ -52,11 +52,11 @@ fun ChatTopBar(
         },
         title = {
             Column(
-                modifier = Modifier.weight(1f),
-                horizontalAlignment = Alignment.Start
+                modifier = Modifier,
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    modifier = Modifier.padding(start = 16.dp),
+                    modifier = Modifier,
                     text = conversationName,
                     style = MaterialTheme.typography.subtitle1,
                     fontSize = 18.sp,

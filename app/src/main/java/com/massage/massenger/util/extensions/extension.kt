@@ -2,7 +2,7 @@ package com.massage.massenger.util.extensions
 
 import android.os.Build
 import android.util.Base64
-import com.massage.massenger.data.remote.socket.dto.SocketMessage
+import com.massage.massenger.data.remote.socket.events.SocketEvent
 import com.massage.massenger.model.User
 import java.math.BigInteger
 import java.nio.charset.StandardCharsets
@@ -20,14 +20,14 @@ fun <T, U, R> Pair<T?, U?>.biLet(body: (T, U) -> R): R? {
     return null
 }
 
-inline fun <T : SocketMessage> T.setPersons(
+inline fun <T : SocketEvent> T.setPersons(
     sender: User?,
     receiver: User?,
     block: (message: T) -> Unit
 ) {
     Pair(sender, receiver).biLet { s, r ->
 
-        (this as SocketMessage).apply {
+        (this as SocketEvent).apply {
             this.sender = s
             this.receiver = r
         }

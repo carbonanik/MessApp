@@ -57,7 +57,8 @@ fun Message(
     firstOfDay: Boolean,
     lastOfDay: Boolean,
     onImageClick: (message: ChatMessage) -> Unit,
-    listHeight: Float
+    listHeight: Float,
+    modifier: Modifier = Modifier
 ) {
     val evaluator = remember { ArgbEvaluator() }
     val topShade = remember { Color(0xFF9200A2) }
@@ -65,7 +66,7 @@ fun Message(
     var backgroundColor by remember { mutableStateOf(bottomShade) }
 
     Column(
-        Modifier
+        modifier
             .onGloballyPositioned { coordinates: LayoutCoordinates ->
                 if (listHeight > 0f) {
                     val topOffset = coordinates.boundsInParent().top

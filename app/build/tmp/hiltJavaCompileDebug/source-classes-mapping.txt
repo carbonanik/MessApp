@@ -1,0 +1,4 @@
+com/massage/massenger/MessengerApplication_ComponentTreeDeps.java
+ com.massage.massenger.MessengerApplication_ComponentTreeDeps
+dagger/hilt/internal/processedrootsentinel/codegen/_com_massage_massenger_MessengerApplication.java
+ dagger.hilt.internal.processedrootsentinel.codegen._com_massage_massenger_MessengerApplication

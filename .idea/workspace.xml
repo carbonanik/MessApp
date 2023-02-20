@@ -1,0 +1,939 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="I/System.out" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+    <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
+    <option name="LOGCAT_HEADER_FORMAT" value="NONE|no-pid|no-packageName|show-tag" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ad299a18-587f-424f-8ede-a513eaff9912" name="Default Changelist" comment="Many Change">
+      <change afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Massenger-rtc.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/app/proguard-rules.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/massage/massenger/data/local/room/DatabaseLogDaoTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/massage/massenger/data/local/room/DatabaseLogDaoTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/massage/massenger/data/local/room/NetworkRequestTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/massage/massenger/data/local/room/NetworkRequestTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/massage/massenger/data/local/room/UserDaoTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/massage/massenger/data/local/room/UserDaoTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/massage/massenger/data/local/room/loadPhotosFromExternalStorageTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/massage/massenger/data/local/room/loadPhotosFromExternalStorageTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/countries.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/countries.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/MessengerApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/MessengerApplication.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/common/ConversionExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/common/ConversionExtension.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/common/NetworkState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/common/NetworkState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/common/TypeAlias.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/common/TypeAlias.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/assets/CountryCodeRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/assets/CountryCodeRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/cache/CachedImageManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/cache/CachedImageManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/cache/DiskImageCacheImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/cache/DiskImageCacheImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/cache/FuseImageCacheImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/cache/FuseImageCacheImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/cache/ImageCache.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/cache/ImageCache.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/content/ContactDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/content/ContactDataSource.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/content/ExternalStorageImageProvider.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/content/ExternalStorageImageProvider.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/pref/AppStartingState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/pref/AppStartingState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/pref/AppStartingStateDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/pref/AppStartingStateDataSource.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/pref/PreferencesKeys.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/pref/PreferencesKeys.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/pref/UserDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/pref/UserDataSource.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/pref/implementation/AppStartingStateDataSourceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/pref/implementation/AppStartingStateDataSourceImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/pref/implementation/UserDataSourceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/pref/implementation/UserDataSourceImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/room/MessengerDatabase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/room/MessengerDatabase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/room/dao/ChatDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/room/dao/ChatDao.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/room/dao/DatabaseLogDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/room/dao/DatabaseLogDao.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/room/dao/GroupDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/room/dao/GroupDao.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/room/dao/MessageDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/room/dao/MessageDao.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/room/dao/PostDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/room/dao/PostDao.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/room/dao/UserDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/room/dao/UserDao.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/HttpRoutes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/HttpRoutes.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/auth/AuthApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/auth/AuthApiService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/auth/AuthApiServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/auth/AuthApiServiceImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/auth/dto/AuthRequest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/auth/dto/AuthRequest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/auth/dto/AuthResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/auth/dto/AuthResponse.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/file/FileShareApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/file/FileShareApiService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/file/FileShareApiServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/file/FileShareApiServiceImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/group/GroupApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/group/GroupApiService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/group/GroupApiServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/group/GroupApiServiceImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/group/dto/AddMemberToGroupRequest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/group/dto/AddMemberToGroupRequest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/group/dto/CreateGroupRequest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/group/dto/CreateGroupRequest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/post/PostApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/post/PostApiService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/post/PostApiServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/post/PostApiServiceImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/post/dto/CreatePostRequest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/post/dto/CreatePostRequest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/user/UserApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/user/UserApiService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/user/UserApiServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/api_service/user/UserApiServiceImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/firebase/FirebaseStorage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/firebase/FirebaseStorage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/socket/CustomSocket.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/socket/CustomSocket.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/socket/KtorSocket.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/socket/KtorSocket.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/socket/WebSocketServiceProvider.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/socket/WebSocketServiceProvider.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/socket/dto/Media.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/socket/dto/Media.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/socket/events/SocketEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/remote/socket/events/SocketEvent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/repository/AppStartingStateDataRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/repository/AppStartingStateDataRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/repository/AuthRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/repository/AuthRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/repository/ChatRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/repository/ChatRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/repository/GroupRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/repository/GroupRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/repository/MessageRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/repository/MessageRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/repository_impl/AppStartingStateDataRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/repository_impl/AppStartingStateDataRepositoryImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/repository_impl/AuthRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/repository_impl/AuthRepositoryImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/repository_impl/ChatRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/repository_impl/ChatRepositoryImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/repository_impl/GroupRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/repository_impl/GroupRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/repository_impl/MessageRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/repository_impl/MessageRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/repository_impl/PostRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/repository_impl/PostRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/repository_impl/UserRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/repository_impl/UserRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/repository_impl/requestBoundFunctions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/repository_impl/requestBoundFunctions.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/di/CacheModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/di/CacheModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/di/DataStoreModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/di/DataStoreModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/di/DatabaseModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/di/DatabaseModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/di/NetworkModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/di/NetworkModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/di/RepositoryModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/di/RepositoryModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/model/Chat.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/model/Chat.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/model/ChatMessage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/model/ChatMessage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/model/Country.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/model/Country.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/model/DatabaseLog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/model/DatabaseLog.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/model/Group.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/model/Group.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/model/Phone.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/model/Phone.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/model/Post.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/model/Post.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/model/SharedStoragePhoto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/model/SharedStoragePhoto.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/model/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/model/User.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/model/enumstate/ChatType.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/model/enumstate/ChatType.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/model/enumstate/LeftReason.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/model/enumstate/LeftReason.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/model/enumstate/RTCConnectionType.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/model/enumstate/RTCConnectionType.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/model/enumstate/RTCRequestType.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/model/enumstate/RTCRequestType.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/component/CountryBottomView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/component/CountryBottomView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/component/FullScreenLoading.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/component/FullScreenLoading.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/component/MessageDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/component/MessageDialog.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/customComposeView/OutlineTextFieldWithErrorView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/customComposeView/OutlineTextFieldWithErrorView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/customComposeView/PhonePrefixTransformation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/customComposeView/PhonePrefixTransformation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/customComposeView/validityExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/customComposeView/validityExtension.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/AppNavigation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/AppNavigation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/CombinedAppNavigation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/CombinedAppNavigation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/Screen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/Screen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/chat_list/ChatListPreview.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/chat_list/ChatListPreview.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/chat_list/ChatListScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/chat_list/ChatListScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/chat_list/NameBox.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/chat_list/NameBox.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/contact_list/ContactScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/contact_list/ContactScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/contact_list/ContactScreenDataState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/contact_list/ContactScreenDataState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/contact_list/ContactScreenPrev.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/contact_list/ContactScreenPrev.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/contact_list/ContactScreenViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/contact_list/ContactScreenViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/create_group/CreateGroup.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/create_group/CreateGroup.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/create_group/CreateGroupViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/create_group/CreateGroupViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/create_group/DataState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/create_group/DataState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/home_nav/BottomNavigationBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/home_nav/BottomNavigationBar.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/home_nav/HomeTabScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/home_nav/HomeTabScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/image_gallery/ImageGridScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/image_gallery/ImageGridScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/image_gallery/ImageGridViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/image_gallery/ImageGridViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/image_view/ImageViewScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/image_view/ImageViewScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/image_view/ImageViewViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/image_view/ImageViewViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/on_boarding/OnBoardingPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/on_boarding/OnBoardingPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/on_boarding/OnBoardingScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/on_boarding/OnBoardingScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/on_boarding/OnBoardingViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/on_boarding/OnBoardingViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/profile_view/ProfileViewScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/profile_view/ProfileViewScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_in/BottomSheetEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_in/BottomSheetEvent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_in/SignInData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_in/SignInData.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_in/SignInDataState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_in/SignInDataState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_in/SignInForm.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_in/SignInForm.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_in/SignInFormEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_in/SignInFormEvent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_in/SignInScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_in/SignInScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_in/SignInViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_in/SignInViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_in/getFlagResId.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_in/getFlagResId.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_up/SignUpData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_up/SignUpData.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_up/SignUpDataState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_up/SignUpDataState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_up/SignUpForm.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_up/SignUpForm.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_up/SignUpFormEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_up/SignUpFormEvent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_up/SignUpInputDataState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_up/SignUpInputDataState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_up/SignUpScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_up/SignUpScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_up/SignUpViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/sign_up/SignUpViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/IgChatScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/IgChatScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/SingleChatDataState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/SingleChatDataState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/SingleChatPreview.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/SingleChatPreview.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/SingleChatScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/SingleChatScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/SingleChatViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/SingleChatViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/AppBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/AppBar.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/BackHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/BackHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/ChatItemBubble.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/ChatItemBubble.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/ClickableMessage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/ClickableMessage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/Conversation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/Conversation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/DayHeader.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/DayHeader.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/JumpToBottom.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/JumpToBottom.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/NotUsing.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/NotUsing.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/PickImage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/PickImage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/ReceivedMediaMessage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/ReceivedMediaMessage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/ReceivedMessage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/ReceivedMessage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/SendMediaMessage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/SendMediaMessage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/SendMessage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/SendMessage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/UserInput.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/UserInput.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/chatBubble.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/chatBubble.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/message.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/message.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/messageFormatter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/single_chat/component/messageFormatter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/video_call/incoming_video_call/IncomingCallScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/video_call/incoming_video_call/IncomingCallScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/video_call/ongoing_video_call/OngoingVideoCllScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/video_call/ongoing_video_call/OngoingVideoCllScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/video_call/outgoing_video_call/OutgoingVideoCallScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/video_call/outgoing_video_call/OutgoingVideoCallScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/video_play/VideoItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/video_play/VideoItem.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/video_play/VideoPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/video_play/VideoPlayer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/video_play/VideoScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/video_play/VideoScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/video_play/VideosViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/video_play/VideosViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/video_playback/VideoPlaybackScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/messaging/video_playback/VideoPlaybackScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/navigation/BottomNavigationBarState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/navigation/BottomNavigationBarState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/navigation/Destination.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/navigation/Destination.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/navigation/Destinavions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/navigation/Destinavions.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/navigation/NavGraphs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/navigation/NavGraphs.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/navigation/NavigationRoute.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/navigation/NavigationRoute.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/navigation/TabDestination.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/navigation/TabDestination.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/navigation/authNavigation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/navigation/authNavigation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/navigation/extnsion.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/navigation/extnsion.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/navigation/otherNavigation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/navigation/otherNavigation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/navigation/singleChatNavigation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/navigation/singleChatNavigation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/navigation/tabScreenNavigation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/navigation/tabScreenNavigation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/ui/DataChannelActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/ui/DataChannelActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/ui/DataChannelViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/ui/DataChannelViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/ui/MessagingActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/ui/MessagingActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/ui/MessagingActivityViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/ui/MessagingActivityViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/ui/TabScreensViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/presentation/ui/TabScreensViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/service/HelloService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/service/SocketMessageService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/service/MyNotificationManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/service/IncomingMessageNotificationManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/service/Not2.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/service/Not2.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/service/NotificationExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/service/NotificationExtension.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/service/NotificationIDS.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/service/NotificationIDS.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/service/Restarter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/service/Restarter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/unorganized/RTCViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/unorganized/RTCViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/unorganized/datachannel/CustomDataChannelObserver.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/unorganized/datachannel/CustomDataChannelObserver.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/unorganized/datachannel/CustomPeerConnectionObserver.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/unorganized/datachannel/CustomPeerConnectionObserver.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/unorganized/datachannel/CustomSdpObserver.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/unorganized/datachannel/CustomSdpObserver.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/unorganized/datachannel/RTConnection.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/unorganized/datachannel/RTConnection.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/Countries.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/Countries.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/ListTypeConverter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/ListTypeConverter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/PermissionExt.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/PermissionExt.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/PermissionStatus.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/PermissionStatus.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/UUIDSerializer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/UUIDSerializer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/UUIDTypeConverter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/UUIDTypeConverter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/constant.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/constant.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/extensions/extension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/extensions/extension.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/extensions/files.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/extensions/files.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/extensions/serializations.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/extensions/serializations.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/getFlagResource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/getFlagResource.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/image_loader/ImageLoader.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/image_loader/ImageLoader.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/image_optimizer/ImageOptimizer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/image_optimizer/ImageOptimizer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/loadImage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/loadImage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/object_id/Assertions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/object_id/Assertions.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/object_id/ObjectId.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/object_id/ObjectId.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/state/AttachedMedia.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/state/AttachedMedia.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/state/EventType.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/state/EventType.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/state/MessageStatus.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/state/MessageStatus.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/state/WanderingState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/state/WanderingState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/testMain.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/testMain.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_video_call.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_video_call.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/exoplayer_controls.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/exoplayer_controls.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/video_player.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/video_player.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/splash.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/splash.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/massage/massenger/FunTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/massage/massenger/FunTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/home/carbonanik/.android/avd/Pixel_4_API_30_2.avd]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Messenger RTC" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Messenger RTC" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Messenger RTC" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="valueResourceFile" />
+        <option value="layoutResourceFile" />
+        <option value="Class" />
+        <option value="Kotlin Data Class" />
+        <option value="Kotlin Interface" />
+        <option value="Kotlin Sealed Class" />
+        <option value="Kotlin Enum" />
+        <option value="Kotlin Class" />
+        <option value="Kotlin Object" />
+        <option value="Kotlin File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Carbon Anik &lt;shkhnk@gmail.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="KotlinCodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="KotlinMultiplatform">
+    <allAvailableExecutables />
+  </component>
+  <component name="ProjectId" id="22kyAmQBjasWtYlSHVV51xBzV3b" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="abbreviatePackageNames" value="true" />
+    <option name="foldersAlwaysOnTop" value="false" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="android-custom-viewC:/Users/anik-pc/.gradle/caches/modules-2/files-2.1/com.google.android.exoplayer/exoplayer-ui/2.16.1/18261d40c6c283e22f6d2f1f37fa65068836e68/exoplayer-ui-2.16.1-sources.jar!/com/google/android/exoplayer2/ui/PlayerView.java_SELECTED" value="PlayerView" />
+    <property name="cidr.known.project.marker" value="true" />
+    <property name="com.android.tools.idea.sqlite.queryhistory" value="SELECT * FROM message_table" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="dynamic.classpath" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Flutter/MyProject/protfolio" />
+    <property name="memory.settings.postsync.last.time.stamp" value="1663903957148" />
+    <property name="project.structure.last.edited" value="Dependencies" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/app/src/main/java/com/massage/massenger/data/local/pref/PreferenceDataStoreSource.kt" />
+  </component>
+  <component name="PsdUISettings">
+    <option name="MODULE_TAB" value="Properties" />
+    <option name="LAST_EDITED_SIGNING_CONFIG" value="debug" />
+    <option name="LAST_EDITED_BUILD_TYPE" value="release" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\java\com\massage\massenger\presentation\messaging\sign_up" />
+      <recent name="D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\res\drawable" />
+      <recent name="D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\res\drawable-v24" />
+      <recent name="D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\java\com\massage\massenger\presentation\component" />
+      <recent name="D:\Work\AndroidStudioProjects\Massenger-rtc\screenshot" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\java\com\massage\massenger\presentation\messaging\on_boarding" />
+      <recent name="D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\res\drawable" />
+      <recent name="C:\Users\anik-pc\AndroidStudioProjects\Massenger-rtc\app\src\main\java\com\massage\massenger\data\repository_impl" />
+      <recent name="C:\Users\anik-pc\AndroidStudioProjects\Massenger-rtc\app\src\main\java\com\massage\massenger\util\image_loader" />
+      <recent name="C:\Users\anik-pc\AndroidStudioProjects\Massenger-rtc\app\src\main\java\com\massage\massenger\presentation\messaging\video_play" />
+    </key>
+    <key name="CreateKotlinClassDialog.RecentsKey">
+      <recent name="com.massage.massenger.presentation.messaging" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.massage.massenger.data.remote.socket.events" />
+      <recent name="com.massage.massenger.data.local.assets" />
+      <recent name="com.massage.massenger.model" />
+      <recent name="com.massage.massenger.data.local.pref.implementation" />
+      <recent name="com.massage.massenger.data.local.room.dao" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.massage.massenger.presentation.messaging" />
+    </key>
+    <key name="android.template.1107189739">
+      <recent name="com.massage.massenger.presentation.ui" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.massage.massenger.presentation.messaging.sign_up" />
+      <recent name="com.massage.massenger.presentation.messaging.video_play" />
+    </key>
+    <key name="android.template.386450517">
+      <recent name="com.massage.massenger.presentation.ui" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.massage.massenger.util" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Android App.app">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="Messenger_RTC.app.main" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app.countrycode" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="Messenger_RTC.app.countrycode" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CreateGroupScreenPrev" type="ComposePreviewRunConfiguration" activateToolWindowBeforeRun="false" temporary="true">
+      <module name="Messenger_RTC.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="--es composable com.massage.massenger.presentation.messaging.create_group.CreateGroupKt.CreateGroupScreenPrev" />
+      <option name="MODE" value="specific_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="androidx.compose.ui.tooling.PreviewActivity" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="true" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <compose-preview-run-configuration composable-fqn="com.massage.massenger.presentation.messaging.create_group.CreateGroupKt.CreateGroupScreenPrev" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IgChatPrev" type="ComposePreviewRunConfiguration" activateToolWindowBeforeRun="false" temporary="true">
+      <module name="Messenger_RTC.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="--es composable com.massage.massenger.presentation.messaging.single_chat.IgChatScreenKt.IgChatPrev" />
+      <option name="MODE" value="specific_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="androidx.compose.ui.tooling.PreviewActivity" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="true" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <compose-preview-run-configuration composable-fqn="com.massage.massenger.presentation.messaging.single_chat.IgChatScreenKt.IgChatPrev" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonPreview" type="ComposePreviewRunConfiguration" activateToolWindowBeforeRun="false" singleton="false" temporary="true">
+      <module name="Messenger_RTC.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="--es composable com.massage.massenger.presentation.messaging.contact_list.ContactScreenKt.PersonPreview" />
+      <option name="MODE" value="specific_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="androidx.compose.ui.tooling.PreviewActivity" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="true" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <compose-preview-run-configuration composable-fqn="com.massage.massenger.presentation.messaging.contact_list.ContactScreenKt.PersonPreview" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SingleChatContentPrev (1)" type="ComposePreviewRunConfiguration" activateToolWindowBeforeRun="false" temporary="true">
+      <module name="Messenger_RTC.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="--es composable com.massage.massenger.presentation.messaging.single_chat.SingleChatPreviewKt.SingleChatContentPrev" />
+      <option name="MODE" value="specific_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="androidx.compose.ui.tooling.PreviewActivity" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="true" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <compose-preview-run-configuration composable-fqn="com.massage.massenger.presentation.messaging.single_chat.SingleChatPreviewKt.SingleChatContentPrev" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SingleChatContentPrev" type="ComposePreviewRunConfiguration" activateToolWindowBeforeRun="false" temporary="true">
+      <module name="Messenger_RTC.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="--es composable com.massage.massenger.presentation.messaging.single_chat.SingleChatScreenKt.SingleChatContentPrev" />
+      <option name="MODE" value="specific_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="androidx.compose.ui.tooling.PreviewActivity" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="true" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <compose-preview-run-configuration composable-fqn="com.massage.massenger.presentation.messaging.single_chat.SingleChatScreenKt.SingleChatContentPrev" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Compose Preview.SingleChatContentPrev (1)" />
+        <item itemvalue="Compose Preview.SingleChatContentPrev" />
+        <item itemvalue="Compose Preview.PersonPreview" />
+        <item itemvalue="Compose Preview.IgChatPrev" />
+        <item itemvalue="Compose Preview.CreateGroupScreenPrev" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ad299a18-587f-424f-8ede-a513eaff9912" name="Default Changelist" comment="" />
+      <created>1640395739352</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1640395739352</updated>
+    </task>
+    <task id="LOCAL-00001" summary="For upload to github">
+      <created>1647894358065</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1647894358065</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Small Bugs Fixes">
+      <created>1648466903110</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1648466903110</updated>
+    </task>
+    <task id="LOCAL-00003" summary="destination Safety Reverse">
+      <created>1653287644174</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1653287644174</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Auth Design Changed">
+      <created>1653503818124</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1653503818124</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Many Change">
+      <created>1676861910964</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1676861910964</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="For upload to github" />
+    <MESSAGE value="Small Bugs Fixes" />
+    <MESSAGE value="destination Safety Reverse" />
+    <MESSAGE value="Auth Design Changed" />
+    <MESSAGE value="Many Change" />
+    <option name="LAST_COMMIT_MESSAGE" value="Many Change" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/androidTest/java/com/massage/massenger/data/local/room/DatabaseLogDaoTest.kt</url>
+          <line>81</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/massage/massenger/util/testMain.kt</url>
+          <line>16</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="kotlinx.coroutines.flow.ReadonlyStateFlow" memberName="value" />
+        <PinnedItemInfo parentTag="kotlinx.coroutines.flow.StateFlowImpl" memberName="value" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="insertUserAndLog()">
+        <watch expression="logList" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>

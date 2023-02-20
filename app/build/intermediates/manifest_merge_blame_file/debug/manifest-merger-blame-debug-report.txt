@@ -1,0 +1,292 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.massage.massenger"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+8-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="32" />
+9-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml
+10
+11    <uses-feature android:name="android.hardware.camera" />
+11-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:6:5-60
+11-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:6:19-57
+12    <uses-feature android:name="android.hardware.camera.autofocus" />
+12-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:7:5-70
+12-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:7:19-67
+13    <uses-feature
+13-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:8:5-10:35
+14        android:glEsVersion="0x00020000"
+14-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:9:9-41
+15        android:required="true" />
+15-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:10:9-32
+16
+17    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+17-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:12:5-80
+17-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:12:22-77
+18    <uses-permission android:name="android.permission.INTERNET" />
+18-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:13:5-67
+18-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:13:22-64
+19    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+19-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:14:5-79
+19-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:14:22-76
+20    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+20-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:15:5-77
+20-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:15:22-74
+21    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+21-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:16:5-81
+21-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:16:22-78
+22    <uses-permission android:name="android.permission.CAMERA" />
+22-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:17:5-65
+22-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:17:22-62
+23    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+23-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:18:5-71
+23-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:18:22-68
+24    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+24-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:19:5-80
+24-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:19:22-77
+25    <uses-permission android:name="android.permission.READ_CONTACTS" />
+25-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:20:5-72
+25-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:20:22-69
+26
+27    <application
+27-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:22:5-75:19
+28        android:name="com.massage.massenger.MessengerApplication"
+28-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:23:9-45
+29        android:allowBackup="true"
+29-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:24:9-35
+30        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+30-->[androidx.core:core:1.7.0] C:\Users\Anik\.gradle\caches\transforms-3\636e51894a4f2fb38d7bdac3f537c83a\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
+31        android:debuggable="true"
+32        android:extractNativeLibs="false"
+33        android:icon="@mipmap/ic_launcher"
+33-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:25:9-43
+34        android:label="@string/app_name"
+34-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:26:9-41
+35        android:roundIcon="@mipmap/ic_launcher_round"
+35-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:27:9-54
+36        android:supportsRtl="true"
+36-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:28:9-35
+37        android:testOnly="true"
+38        android:theme="@style/AppTheme"
+38-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:29:9-40
+39        android:usesCleartextTraffic="true" >
+39-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:30:9-44
+40        <activity
+40-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:32:9-34:39
+41            android:name="com.massage.massenger.presentation.ui.DataChannelActivity"
+41-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:33:13-64
+42            android:exported="true" />
+42-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:34:13-36
+43        <activity
+43-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:35:9-37:39
+44            android:name="com.massage.massenger.presentation.ui.RTCActivity"
+44-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:36:13-56
+45            android:exported="true" />
+45-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:37:13-36
+46        <activity
+46-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:38:9-60:20
+47            android:name="com.massage.massenger.presentation.ui.MessagingActivity"
+47-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:39:13-62
+48            android:exported="true"
+48-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:40:13-36
+49            android:windowSoftInputMode="adjustResize" >
+49-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:41:13-55
+50            <intent-filter>
+50-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:42:13-46:29
+51                <action android:name="android.intent.action.MAIN" />
+51-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:43:17-69
+51-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:43:25-66
+52
+53                <category android:name="android.intent.category.LAUNCHER" />
+53-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:44:17-77
+53-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:44:27-74
+54            </intent-filter>
+55            <intent-filter>
+55-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:48:13-58:29
+56                <action android:name="android.intent.action.VIEW" />
+56-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:49:17-69
+56-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:49:25-66
+57
+58                <category android:name="android.intent.category.DEFAULT" />
+58-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:51:17-76
+58-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:51:27-73
+59                <category android:name="android.intent.category.BROWSABLE" />
+59-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:52:17-78
+59-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:52:27-75
+60
+61                <data
+61-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:54:17-56:44
+62                    android:host="com.massage.massenger"
+62-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:55:21-57
+63                    android:scheme="app" />
+63-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:56:21-41
+64            </intent-filter>
+65        </activity>
+66
+67        <receiver
+67-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:62:9-69:20
+68            android:name="com.massage.massenger.service.Restarter"
+68-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:63:13-46
+69            android:enabled="true"
+69-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:64:13-35
+70            android:exported="true" >
+70-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:65:13-36
+71            <intent-filter>
+71-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:66:13-68:29
+72                <action android:name="restartservice" />
+72-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:67:17-57
+72-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:67:25-54
+73            </intent-filter>
+74        </receiver>
+75
+76        <service
+76-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:71:9-74:44
+77            android:name="com.massage.massenger.service.SocketMessageService"
+77-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:72:13-57
+78            android:enabled="true"
+78-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:73:13-35
+79            android:label="HelloService" />
+79-->D:\Work\AndroidStudioProjects\Massenger-rtc\app\src\main\AndroidManifest.xml:74:13-41
+80
+81        <activity
+81-->[androidx.compose.ui:ui-tooling:1.1.0] C:\Users\Anik\.gradle\caches\transforms-3\7abf9368e25192e401804f70b60d8d68\transformed\jetified-ui-tooling-1.1.0\AndroidManifest.xml:25:9-27:39
+82            android:name="androidx.compose.ui.tooling.PreviewActivity"
+82-->[androidx.compose.ui:ui-tooling:1.1.0] C:\Users\Anik\.gradle\caches\transforms-3\7abf9368e25192e401804f70b60d8d68\transformed\jetified-ui-tooling-1.1.0\AndroidManifest.xml:26:13-71
+83            android:exported="true" />
+83-->[androidx.compose.ui:ui-tooling:1.1.0] C:\Users\Anik\.gradle\caches\transforms-3\7abf9368e25192e401804f70b60d8d68\transformed\jetified-ui-tooling-1.1.0\AndroidManifest.xml:27:13-36
+84
+85        <service
+85-->[com.google.firebase:firebase-storage-ktx:19.2.2] C:\Users\Anik\.gradle\caches\transforms-3\152a18c930774be40ddadb0097e5fe1f\transformed\jetified-firebase-storage-ktx-19.2.2\AndroidManifest.xml:12:9-18:19
+86            android:name="com.google.firebase.components.ComponentDiscoveryService"
+86-->[com.google.firebase:firebase-storage-ktx:19.2.2] C:\Users\Anik\.gradle\caches\transforms-3\152a18c930774be40ddadb0097e5fe1f\transformed\jetified-firebase-storage-ktx-19.2.2\AndroidManifest.xml:13:13-84
+87            android:directBootAware="true"
+87-->[com.google.firebase:firebase-common:19.5.0] C:\Users\Anik\.gradle\caches\transforms-3\b89ee38e4750f03d4f5b5df0455ba626\transformed\jetified-firebase-common-19.5.0\AndroidManifest.xml:35:13-43
+88            android:exported="false" >
+88-->[com.google.firebase:firebase-storage-ktx:19.2.2] C:\Users\Anik\.gradle\caches\transforms-3\152a18c930774be40ddadb0097e5fe1f\transformed\jetified-firebase-storage-ktx-19.2.2\AndroidManifest.xml:14:13-37
+89            <meta-data
+89-->[com.google.firebase:firebase-storage-ktx:19.2.2] C:\Users\Anik\.gradle\caches\transforms-3\152a18c930774be40ddadb0097e5fe1f\transformed\jetified-firebase-storage-ktx-19.2.2\AndroidManifest.xml:15:13-17:85
+90                android:name="com.google.firebase.components:com.google.firebase.storage.ktx.FirebaseStorageKtxRegistrar"
+90-->[com.google.firebase:firebase-storage-ktx:19.2.2] C:\Users\Anik\.gradle\caches\transforms-3\152a18c930774be40ddadb0097e5fe1f\transformed\jetified-firebase-storage-ktx-19.2.2\AndroidManifest.xml:16:17-122
+91                android:value="com.google.firebase.components.ComponentRegistrar" />
+91-->[com.google.firebase:firebase-storage-ktx:19.2.2] C:\Users\Anik\.gradle\caches\transforms-3\152a18c930774be40ddadb0097e5fe1f\transformed\jetified-firebase-storage-ktx-19.2.2\AndroidManifest.xml:17:17-82
+92            <meta-data
+92-->[com.google.firebase:firebase-common-ktx:19.5.0] C:\Users\Anik\.gradle\caches\transforms-3\9b85d2ad3b2782b4dc49d0ea61d1a79a\transformed\jetified-firebase-common-ktx-19.5.0\AndroidManifest.xml:15:13-17:85
+93                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonKtxRegistrar"
+93-->[com.google.firebase:firebase-common-ktx:19.5.0] C:\Users\Anik\.gradle\caches\transforms-3\9b85d2ad3b2782b4dc49d0ea61d1a79a\transformed\jetified-firebase-common-ktx-19.5.0\AndroidManifest.xml:16:17-113
+94                android:value="com.google.firebase.components.ComponentRegistrar" />
+94-->[com.google.firebase:firebase-common-ktx:19.5.0] C:\Users\Anik\.gradle\caches\transforms-3\9b85d2ad3b2782b4dc49d0ea61d1a79a\transformed\jetified-firebase-common-ktx-19.5.0\AndroidManifest.xml:17:17-82
+95            <meta-data
+95-->[com.google.firebase:firebase-storage:19.2.2] C:\Users\Anik\.gradle\caches\transforms-3\aed150b5a3059b83f42efda90afb77f4\transformed\jetified-firebase-storage-19.2.2\AndroidManifest.xml:33:13-35:85
+96                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+96-->[com.google.firebase:firebase-storage:19.2.2] C:\Users\Anik\.gradle\caches\transforms-3\aed150b5a3059b83f42efda90afb77f4\transformed\jetified-firebase-storage-19.2.2\AndroidManifest.xml:34:17-107
+97                android:value="com.google.firebase.components.ComponentRegistrar" />
+97-->[com.google.firebase:firebase-storage:19.2.2] C:\Users\Anik\.gradle\caches\transforms-3\aed150b5a3059b83f42efda90afb77f4\transformed\jetified-firebase-storage-19.2.2\AndroidManifest.xml:35:17-82
+98            <!--
+99                This registrar is not defined in the dynamic-module-support sdk itself to allow non-firebase
+100                clients to use it as well, by defining this registrar in their own core/common library.
+101            -->
+102            <meta-data
+102-->[com.google.firebase:firebase-common:19.5.0] C:\Users\Anik\.gradle\caches\transforms-3\b89ee38e4750f03d4f5b5df0455ba626\transformed\jetified-firebase-common-19.5.0\AndroidManifest.xml:43:13-45:85
+103                android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar"
+103-->[com.google.firebase:firebase-common:19.5.0] C:\Users\Anik\.gradle\caches\transforms-3\b89ee38e4750f03d4f5b5df0455ba626\transformed\jetified-firebase-common-19.5.0\AndroidManifest.xml:44:17-121
+104                android:value="com.google.firebase.components.ComponentRegistrar" />
+104-->[com.google.firebase:firebase-common:19.5.0] C:\Users\Anik\.gradle\caches\transforms-3\b89ee38e4750f03d4f5b5df0455ba626\transformed\jetified-firebase-common-19.5.0\AndroidManifest.xml:45:17-82
+105        </service>
+106
+107        <provider
+107-->[com.google.firebase:firebase-common:19.5.0] C:\Users\Anik\.gradle\caches\transforms-3\b89ee38e4750f03d4f5b5df0455ba626\transformed\jetified-firebase-common-19.5.0\AndroidManifest.xml:26:9-31:39
+108            android:name="com.google.firebase.provider.FirebaseInitProvider"
+108-->[com.google.firebase:firebase-common:19.5.0] C:\Users\Anik\.gradle\caches\transforms-3\b89ee38e4750f03d4f5b5df0455ba626\transformed\jetified-firebase-common-19.5.0\AndroidManifest.xml:27:13-77
+109            android:authorities="com.massage.massenger.firebaseinitprovider"
+109-->[com.google.firebase:firebase-common:19.5.0] C:\Users\Anik\.gradle\caches\transforms-3\b89ee38e4750f03d4f5b5df0455ba626\transformed\jetified-firebase-common-19.5.0\AndroidManifest.xml:28:13-72
+110            android:directBootAware="true"
+110-->[com.google.firebase:firebase-common:19.5.0] C:\Users\Anik\.gradle\caches\transforms-3\b89ee38e4750f03d4f5b5df0455ba626\transformed\jetified-firebase-common-19.5.0\AndroidManifest.xml:29:13-43
+111            android:exported="false"
+111-->[com.google.firebase:firebase-common:19.5.0] C:\Users\Anik\.gradle\caches\transforms-3\b89ee38e4750f03d4f5b5df0455ba626\transformed\jetified-firebase-common-19.5.0\AndroidManifest.xml:30:13-37
+112            android:initOrder="100" />
+112-->[com.google.firebase:firebase-common:19.5.0] C:\Users\Anik\.gradle\caches\transforms-3\b89ee38e4750f03d4f5b5df0455ba626\transformed\jetified-firebase-common-19.5.0\AndroidManifest.xml:31:13-36
+113
+114        <activity
+114-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Anik\.gradle\caches\transforms-3\c29eee141cd46417b46c56cce4009a4c\transformed\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+115            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+115-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Anik\.gradle\caches\transforms-3\c29eee141cd46417b46c56cce4009a4c\transformed\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+116            android:exported="false"
+116-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Anik\.gradle\caches\transforms-3\c29eee141cd46417b46c56cce4009a4c\transformed\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+117            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+117-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Anik\.gradle\caches\transforms-3\c29eee141cd46417b46c56cce4009a4c\transformed\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+118
+119        <meta-data
+119-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Anik\.gradle\caches\transforms-3\219dd8628f5d7bded4f50c838434d68b\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+120            android:name="com.google.android.gms.version"
+120-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Anik\.gradle\caches\transforms-3\219dd8628f5d7bded4f50c838434d68b\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+121            android:value="@integer/google_play_services_version" />
+121-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Anik\.gradle\caches\transforms-3\219dd8628f5d7bded4f50c838434d68b\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+122
+123        <service
+123-->[androidx.room:room-runtime:2.4.1] C:\Users\Anik\.gradle\caches\transforms-3\62ce872369900dac5a83bbd95dc14da5\transformed\room-runtime-2.4.1\AndroidManifest.xml:25:9-28:40
+124            android:name="androidx.room.MultiInstanceInvalidationService"
+124-->[androidx.room:room-runtime:2.4.1] C:\Users\Anik\.gradle\caches\transforms-3\62ce872369900dac5a83bbd95dc14da5\transformed\room-runtime-2.4.1\AndroidManifest.xml:26:13-74
+125            android:directBootAware="true"
+125-->[androidx.room:room-runtime:2.4.1] C:\Users\Anik\.gradle\caches\transforms-3\62ce872369900dac5a83bbd95dc14da5\transformed\room-runtime-2.4.1\AndroidManifest.xml:27:13-43
+126            android:exported="false" />
+126-->[androidx.room:room-runtime:2.4.1] C:\Users\Anik\.gradle\caches\transforms-3\62ce872369900dac5a83bbd95dc14da5\transformed\room-runtime-2.4.1\AndroidManifest.xml:28:13-37
+127
+128        <provider
+128-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Anik\.gradle\caches\transforms-3\a4b5257e4854e0cd338f8eec8920c5db\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+129            android:name="androidx.startup.InitializationProvider"
+129-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Anik\.gradle\caches\transforms-3\a4b5257e4854e0cd338f8eec8920c5db\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:27:13-67
+130            android:authorities="com.massage.massenger.androidx-startup"
+130-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Anik\.gradle\caches\transforms-3\a4b5257e4854e0cd338f8eec8920c5db\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:28:13-68
+131            android:exported="false" >
+131-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Anik\.gradle\caches\transforms-3\a4b5257e4854e0cd338f8eec8920c5db\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:29:13-37
+132            <meta-data
+132-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Anik\.gradle\caches\transforms-3\a4b5257e4854e0cd338f8eec8920c5db\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+133                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+133-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Anik\.gradle\caches\transforms-3\a4b5257e4854e0cd338f8eec8920c5db\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
+134                android:value="androidx.startup" />
+134-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Anik\.gradle\caches\transforms-3\a4b5257e4854e0cd338f8eec8920c5db\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
+135            <meta-data
+135-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Anik\.gradle\caches\transforms-3\ba1f718b186d27412c066975aa0faaa1\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+136                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+136-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Anik\.gradle\caches\transforms-3\ba1f718b186d27412c066975aa0faaa1\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+137                android:value="androidx.startup" />
+137-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Anik\.gradle\caches\transforms-3\ba1f718b186d27412c066975aa0faaa1\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+138            <meta-data
+138-->[androidx.profileinstaller:profileinstaller:1.2.0-beta02] C:\Users\Anik\.gradle\caches\transforms-3\dd0da807de86f5b73b88a95ee0723717\transformed\jetified-profileinstaller-1.2.0-beta02\AndroidManifest.xml:30:13-32:52
+139                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+139-->[androidx.profileinstaller:profileinstaller:1.2.0-beta02] C:\Users\Anik\.gradle\caches\transforms-3\dd0da807de86f5b73b88a95ee0723717\transformed\jetified-profileinstaller-1.2.0-beta02\AndroidManifest.xml:31:17-85
+140                android:value="androidx.startup" />
+140-->[androidx.profileinstaller:profileinstaller:1.2.0-beta02] C:\Users\Anik\.gradle\caches\transforms-3\dd0da807de86f5b73b88a95ee0723717\transformed\jetified-profileinstaller-1.2.0-beta02\AndroidManifest.xml:32:17-49
+141        </provider>
+142
+143        <receiver
+143-->[androidx.profileinstaller:profileinstaller:1.2.0-beta02] C:\Users\Anik\.gradle\caches\transforms-3\dd0da807de86f5b73b88a95ee0723717\transformed\jetified-profileinstaller-1.2.0-beta02\AndroidManifest.xml:35:9-47:20
+144            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+144-->[androidx.profileinstaller:profileinstaller:1.2.0-beta02] C:\Users\Anik\.gradle\caches\transforms-3\dd0da807de86f5b73b88a95ee0723717\transformed\jetified-profileinstaller-1.2.0-beta02\AndroidManifest.xml:36:13-76
+145            android:directBootAware="false"
+145-->[androidx.profileinstaller:profileinstaller:1.2.0-beta02] C:\Users\Anik\.gradle\caches\transforms-3\dd0da807de86f5b73b88a95ee0723717\transformed\jetified-profileinstaller-1.2.0-beta02\AndroidManifest.xml:37:13-44
+146            android:enabled="true"
+146-->[androidx.profileinstaller:profileinstaller:1.2.0-beta02] C:\Users\Anik\.gradle\caches\transforms-3\dd0da807de86f5b73b88a95ee0723717\transformed\jetified-profileinstaller-1.2.0-beta02\AndroidManifest.xml:38:13-35
+147            android:exported="true"
+147-->[androidx.profileinstaller:profileinstaller:1.2.0-beta02] C:\Users\Anik\.gradle\caches\transforms-3\dd0da807de86f5b73b88a95ee0723717\transformed\jetified-profileinstaller-1.2.0-beta02\AndroidManifest.xml:39:13-36
+148            android:permission="android.permission.DUMP" >
+148-->[androidx.profileinstaller:profileinstaller:1.2.0-beta02] C:\Users\Anik\.gradle\caches\transforms-3\dd0da807de86f5b73b88a95ee0723717\transformed\jetified-profileinstaller-1.2.0-beta02\AndroidManifest.xml:40:13-57
+149            <intent-filter>
+149-->[androidx.profileinstaller:profileinstaller:1.2.0-beta02] C:\Users\Anik\.gradle\caches\transforms-3\dd0da807de86f5b73b88a95ee0723717\transformed\jetified-profileinstaller-1.2.0-beta02\AndroidManifest.xml:41:13-43:29
+150                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+150-->[androidx.profileinstaller:profileinstaller:1.2.0-beta02] C:\Users\Anik\.gradle\caches\transforms-3\dd0da807de86f5b73b88a95ee0723717\transformed\jetified-profileinstaller-1.2.0-beta02\AndroidManifest.xml:42:17-91
+150-->[androidx.profileinstaller:profileinstaller:1.2.0-beta02] C:\Users\Anik\.gradle\caches\transforms-3\dd0da807de86f5b73b88a95ee0723717\transformed\jetified-profileinstaller-1.2.0-beta02\AndroidManifest.xml:42:25-88
+151            </intent-filter>
+152            <intent-filter>
+152-->[androidx.profileinstaller:profileinstaller:1.2.0-beta02] C:\Users\Anik\.gradle\caches\transforms-3\dd0da807de86f5b73b88a95ee0723717\transformed\jetified-profileinstaller-1.2.0-beta02\AndroidManifest.xml:44:13-46:29
+153                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+153-->[androidx.profileinstaller:profileinstaller:1.2.0-beta02] C:\Users\Anik\.gradle\caches\transforms-3\dd0da807de86f5b73b88a95ee0723717\transformed\jetified-profileinstaller-1.2.0-beta02\AndroidManifest.xml:45:17-85
+153-->[androidx.profileinstaller:profileinstaller:1.2.0-beta02] C:\Users\Anik\.gradle\caches\transforms-3\dd0da807de86f5b73b88a95ee0723717\transformed\jetified-profileinstaller-1.2.0-beta02\AndroidManifest.xml:45:25-82
+154            </intent-filter>
+155        </receiver>
+156    </application>
+157
+158</manifest>

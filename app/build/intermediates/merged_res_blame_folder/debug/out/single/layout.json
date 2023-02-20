@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "D:\\Work\\AndroidStudioProjects\\Massenger-rtc\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_rtc.xml",
+        "source": "D:\\Work\\AndroidStudioProjects\\Massenger-rtc\\app\\src\\main\\res\\layout\\activity_rtc.xml"
+    },
+    {
+        "merged": "D:\\Work\\AndroidStudioProjects\\Massenger-rtc\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_data_channel2.xml",
+        "source": "D:\\Work\\AndroidStudioProjects\\Massenger-rtc\\app\\src\\main\\res\\layout\\activity_data_channel2.xml"
+    }
+]

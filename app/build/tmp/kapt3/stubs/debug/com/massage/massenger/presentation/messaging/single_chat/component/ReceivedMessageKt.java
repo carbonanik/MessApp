@@ -1,0 +1,7 @@
+package com.massage.massenger.presentation.messaging.single_chat.component;
+
+import java.lang.System;
+
+@kotlin.Metadata(mv = {1, 6, 0}, k = 2, d1 = {"\u0000.\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\u001af\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u00052\u0012\u0010\u0006\u001a\u000e\u0012\u0004\u0012\u00020\b\u0012\u0004\u0012\u00020\u00010\u00072!\u0010\t\u001a\u001d\u0012\u0013\u0012\u00110\u0003\u00a2\u0006\f\b\n\u0012\b\b\u000b\u0012\u0004\b\b(\u0002\u0012\u0004\u0012\u00020\u00010\u00072\b\b\u0002\u0010\f\u001a\u00020\rH\u0007\u00f8\u0001\u0000\u00f8\u0001\u0001\u00a2\u0006\u0004\b\u000e\u0010\u000f\u0082\u0002\u000b\n\u0002\b\u0019\n\u0005\b\u00a1\u001e0\u0001\u00a8\u0006\u0010"}, d2 = {"ReceivedMessage", "", "message", "Lcom/massage/massenger/model/ChatMessage;", "needArrow", "", "authorClicked", "Lkotlin/Function1;", "Lcom/massage/massenger/model/User;", "onImageClick", "Lkotlin/ParameterName;", "name", "backgroundColor", "Landroidx/compose/ui/graphics/Color;", "ReceivedMessage-xwkQ0AY", "(Lcom/massage/massenger/model/ChatMessage;ZLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;J)V", "app_debug"})
+public final class ReceivedMessageKt {
+}

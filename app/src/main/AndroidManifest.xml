@@ -69,7 +69,7 @@
         </receiver>
 
         <service
-            android:name=".service.HelloService"
+            android:name=".service.SocketMessageService"
             android:enabled="true"
             android:label="HelloService" />
     </application>

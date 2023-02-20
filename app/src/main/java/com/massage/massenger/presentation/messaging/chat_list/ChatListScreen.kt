@@ -56,10 +56,9 @@ fun ChatListScreenContent(
     val nestedScrollConnection = remember {
         object : NestedScrollConnection {
             override fun onPreScroll(available: Offset, source: NestedScrollSource): Offset {
-
-                val d = available.y
-                if (d > 1) showFab = true
-                else if (d < -1) showFab = false
+                val y = available.y
+                if (y > 1) showFab = true
+                else if (y < -1) showFab = false
 
                 super.onPreScroll(available, source)
                 return Offset.Zero

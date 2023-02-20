@@ -19,7 +19,7 @@ import com.massage.massenger.presentation.navigation.SingleChatDestination
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
-class MyNotificationManager @Inject constructor(@ApplicationContext private val context: Context) {
+class IncomingMessageNotificationManager @Inject constructor(@ApplicationContext private val context: Context) {
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun createFloatingNotificationChannel() {

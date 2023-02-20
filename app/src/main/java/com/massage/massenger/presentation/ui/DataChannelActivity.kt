@@ -43,9 +43,9 @@ class DataChannelActivity : AppCompatActivity() {
             actionOpenDoc()
         }
 
-        viewModel.incomingImage.observe(this, {
+        viewModel.incomingImage.observe(this) {
             binding.incomingImage.setImageBitmap(it)
-        })
+        }
     }
 
     private fun actionOpenDoc() {

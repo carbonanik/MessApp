@@ -1,19 +1,5 @@
 package com.massage.massenger.service
 
-import android.app.NotificationManager
-import android.app.PendingIntent
-import android.content.Context
-import android.content.Intent
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
-import androidx.core.app.TaskStackBuilder
-import com.massage.massenger.R
-import com.massage.massenger.model.Chat
-import com.massage.massenger.model.ChatMessage
-import com.massage.massenger.presentation.ui.MessagingActivity
-import dagger.hilt.android.qualifiers.ApplicationContext
-import javax.inject.Inject
-
 //class MessageNotificationManager2 @Inject constructor(@ApplicationContext private val context: Context) {
 //
 ////    @RequiresApi(Build.VERSION_CODES.O)

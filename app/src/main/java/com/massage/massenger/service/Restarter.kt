@@ -10,8 +10,8 @@ class Restarter: BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
         println( " Service Restarted")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            context?.startForegroundService(Intent(context, HelloService::class.java))
+            context?.startForegroundService(Intent(context, SocketMessageService::class.java))
         else
-            context?.startService(Intent(context, HelloService::class.java))
+            context?.startService(Intent(context, SocketMessageService::class.java))
     }
 }

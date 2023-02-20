@@ -18,19 +18,18 @@ import com.massage.massenger.util.extensions.toJson
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
 @AndroidEntryPoint
-class HelloService : Service() {
+class SocketMessageService : Service() {
 
     @Inject
     lateinit var messageRepository: MessageRepository
 
     @Inject
-    lateinit var messageNotificationManager: MyNotificationManager
+    lateinit var messageNotificationManager: IncomingMessageNotificationManager
     val scope = CoroutineScope(Dispatchers.Default)
 
     private val notificationIds = HashMap<String, Int>()
@@ -77,7 +76,7 @@ class HelloService : Service() {
                 if (message.rtcConType == RTCConnectionType.VideoCall && message.rtcReqType == RTCRequestType.REQUESTING) { /// offer came from another user
 
                     val intent = Intent(
-                        this@HelloService,
+                        this@SocketMessageService,
                         RTCActivity::class.java
                     )
 
@@ -90,7 +89,7 @@ class HelloService : Service() {
                 } else if (message.rtcConType == RTCConnectionType.DataChannel && message.rtcReqType == RTCRequestType.REQUESTING) {
 
                     val intent = Intent(
-                        this@HelloService,
+                        this@SocketMessageService,
                         DataChannelActivity::class.java
                     )
 

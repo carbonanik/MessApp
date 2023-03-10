@@ -1,3 +1,0 @@
-01-29 12:18:03.106 25880 25940 I TestRunner: started: funTest(com.massage.massenger.data.local.room.UserDaoTest)
-01-29 12:18:03.135 25880 25940 I System.out: 1643437083135
-01-29 12:18:03.136 25880 25940 I TestRunner: finished: funTest(com.massage.massenger.data.local.room.UserDaoTest)

@@ -1,7 +1,0 @@
-package com.massage.massenger.common;
-
-import java.lang.System;
-
-@kotlin.Metadata(mv = {1, 6, 0}, k = 2, d1 = {"\u00002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000*\n\u0010\u0000\"\u00020\u00012\u00020\u0001*\n\u0010\u0002\"\u00020\u00032\u00020\u0003*\n\u0010\u0004\"\u00020\u00052\u00020\u0005*\n\u0010\u0006\"\u00020\u00072\u00020\u0007*\n\u0010\b\"\u00020\t2\u00020\t*\n\u0010\n\"\u00020\u000b2\u00020\u000b*\n\u0010\f\"\u00020\r2\u00020\r*\n\u0010\u000e\"\u00020\u000f2\u00020\u000f\u00a8\u0006\u0010"}, d2 = {"ICEMessage", "Lcom/massage/massenger/data/remote/socket/events/SocketEvent$RTCMessage$ICEMessage;", "MessageStatusCarrier", "Lcom/massage/massenger/data/remote/socket/events/SocketEvent$MessageStatusCarrier;", "PeerLeft", "Lcom/massage/massenger/data/remote/socket/events/SocketEvent$RTCMessage$PeerLeft;", "RTCMessage", "Lcom/massage/massenger/data/remote/socket/events/SocketEvent$RTCMessage;", "RtcRequest", "Lcom/massage/massenger/data/remote/socket/events/SocketEvent$RTCMessage$RtcRequest;", "SDPMessage", "Lcom/massage/massenger/data/remote/socket/events/SocketEvent$RTCMessage$SDPMessage;", "TextMessage", "Lcom/massage/massenger/data/remote/socket/events/SocketEvent$TextMessage;", "WanderingStatus", "Lcom/massage/massenger/data/remote/socket/events/SocketEvent$WanderingStatus;", "app_debug"})
-public final class TypeAliasKt {
-}

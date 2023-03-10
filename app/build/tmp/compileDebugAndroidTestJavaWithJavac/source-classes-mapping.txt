@@ -1,2 +1,0 @@
-com/massage/massenger/test/BuildConfig.java
- com.massage.massenger.test.BuildConfig

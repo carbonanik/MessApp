@@ -4,10 +4,10 @@ sealed class HttpRoutes {
     private val LOCAL = "10.0.2.2:8080"
     private val REMOTE = "ktor-mess-app.herokuapp.com"
 
-    private val SERVER = REMOTE
+    private val isLocal = true
 
     val BASE_URL =
-        if (SERVER == REMOTE) "https://$SERVER" else "http://$SERVER"
+        if (isLocal) "http://$LOCAL" else "https://$REMOTE"
 
     object Auth: HttpRoutes() {
         val LOGIN = "$BASE_URL/auth/login"
@@ -46,9 +46,9 @@ sealed class HttpRoutes {
         val UPLOAD_PHOTO = "$BASE_URL/uploads/photo"
     }
 
-    val SOCKET_HOST = if (SERVER == REMOTE) {
-        "ktor-mess-app.herokuapp.coms"
-    } else {
+    val SOCKET_HOST = if (isLocal) {
         "10.0.2.2"
+    } else {
+        "ktor-mess-app.herokuapp.coms"
     }
 }
